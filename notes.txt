@@ -1,0 +1,2 @@
+STATUS ENUM
+https://betterprogramming.pub/how-to-use-enums-in-rails-6-87600e292476

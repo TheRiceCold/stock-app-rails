@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :registerable, :recoverable,
          :rememberable, :validatable,
          :confirmable
+
+  enum status: {
+    pending: 0,
+    active: 1,
+    archived: 2
+  }, _prefix: true
 end
