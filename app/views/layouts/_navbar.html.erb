@@ -10,7 +10,10 @@
           <%= link_to 'Home', root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <%= link_to 'Stock Market', stocks_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Transaction History</a>
         </li>
       </ul>
       <%= render "user/session_manager" %>
