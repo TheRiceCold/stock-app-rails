@@ -1,0 +1,36 @@
+<div class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" 
+     href="#" id="navbarDropdown" 
+     data-bs-toggle="dropdown" 
+     aria-expanded="false">
+    User
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <% if user_signed_in? %>
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><%= link_to "Edit Account", 
+        edit_user_registration_path, 
+        class: "dropdown-item" %>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li><%= link_to 'Sign Out', 
+        destroy_user_session_path, 
+        class: 'dropdown-item', 
+        data: { turbo_method: :delete } %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to 'Sign In', 
+          new_user_session_path, 
+          class: 'nav-link' 
+        %>
+      </li>
+      <li>
+        <%= link_to 'Sign Up', 
+          new_user_registration_path, 
+          class: 'nav-link' 
+        %>
+      </li>
+    <% end %>
+  </ul>
+</div>
