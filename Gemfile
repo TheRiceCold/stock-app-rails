@@ -25,7 +25,6 @@ group :development do
   gem "web-console"
   gem "letter_opener"
   gem "better_errors"
-  
 end
 
 group :test do
