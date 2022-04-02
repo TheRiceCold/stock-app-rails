@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :investments
   resources :stocks
   devise_for :users, controllers: {
     sessions: 'users/sessions',
