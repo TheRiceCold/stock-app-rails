@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_005651) do
     t.string "symbol"
     t.string "company_name"
     t.decimal "market_cap"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

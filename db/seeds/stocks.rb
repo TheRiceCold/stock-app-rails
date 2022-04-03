@@ -1,4 +1,4 @@
-# april 4, 2022
+# april 3, 2022
 # nasdaq.com/market-activity/quotes/nasdaq-ndx-index
 
 nasdaq_100 = [
