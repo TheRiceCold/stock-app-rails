@@ -1,40 +1,42 @@
+# april 4, 2022
+# nasdaq.com/market-activity/quotes/nasdaq-ndx-index
+
 nasdaq_100 = [
-  "AAPL", "ADBE", "ADI", "ADP", 
-  "ADSK", "AEP", "ALGN", "AMAT", 
-  "AMD", "AMGN", "AMZN", "ANSS", 
-  "ASML", "ATVI", "AVGO", "BIDU", 
-  "BIIB", "BKNG", "CDNS", "CDW", 
-  "CERN", "CHKP", "CHTR", "CMCSA", 
-  "COST", "CPRT", "CRWD", "CSCO", 
-  "CSX", "CTAS", "CTSH", "DLTR", 
-  "DOCU", "DXCM", "EA", "EBAY",
-  "EXC", "FAST", "FB", "FISV", 
-  "FOX", "FOXA", "GILD", "GOOG", 
-  "GOOGL", "HON", "IDXX", "ILMN", 
-  "INCY", "INTC", "INTU", "ISRG", 
-  "JD", "KDP", "KHC", "KLAC", 
-  "LRCX", "LULU", "MAR", "MCHP", 
-  "MDLZ", "MELI", "MNST", "MRNA", 
-  "MRVL", "MSFT", "MTCH", "MU", 
-  "NFLX", "NTES", "NVDA", "NXPI", 
-  "OKTA", "ORLY", "PAYX", "PCAR", 
-  "PDD", "PEP", "PTON", "PYPL", 
-  "QCOM", "REGN", "ROST", "SBUX", 
-  "SGEN", "SIRI", "SNPS", "SPLK", 
-  "SWKS", "TCOM", "TEAM", "TMUS", 
-  "TSLA", "TXN", "VRSK", "VRSN", 
-  "VRTX", "WBA", "WDAY", "XEL", 
-  "XLNX", "ZM"
+  'AAPL', 'ABNB', 'ADBE', 'ADI', 
+  'ADP', 'ADSK', 'AEP', 'ALGN', 
+  'AMAT', 'AMD', 'AMGN', 'AMZN', 
+  'ANSS', 'ASML', 'ATVI', 'AVGO', 
+  'AZN', 'BIDU', 'BIIB', 'BKNG', 
+  'CDNS', 'CEG', 'CHTR', 'CMCSA', 
+  'COST', 'CPRT', 'CRWD', 'CSCO', 
+  'CSX', 'CTAS', 'CTSH', 'DDOG',
+  'DLTR', 'DOCU', 'DXCM', 'EA', 
+  'EBAY', 'EXC', 'FAST', 'FB', 
+  'FISV', 'FTNT', 'GILD', 'GOOG', 
+  'GOOGL', 'HON', 'IDXX', 'ILMN', 
+  'INCY', 'INTC', 'INTU', 'ISRG', 
+  'JD', 'KDP', 'KHC', 'KLAC', 
+  'LRCX', 'LULU', 'MAR', 'MCHP', 
+  'MDLZ', 'MELI', 'MNST', 'MRNA', 
+  'MRVL', 'MSFT', 'MTCH', 'MU', 
+  'NFLX', 'NTES', 'NVDA', 'NXPI', 
+  'ODFL', 'OKTA', 'ORLY', 'PANW', 
+  'PAYX', 'PCAR', 'PDD', 'PEP', 
+  'PYPL', 'QCOM', 'REGN', 'ROST', 
+  'SBUX', 'SGEN', 'SIRI', 'SNPS', 
+  'SPLK', 'SWKS', 'TEAM', 'TMUS', 
+  'TSLA', 'TXN', 'VRSK', 'VRSN', 
+  'VRTX', 'WBA', 'WDAY', 
+  'XEL', 'ZM', 'ZS'
 ]
 
-client = IEX::Api::Client.new
+api = IEX::Api::Client.new
+Money.rounding_mode = BigDecimal::ROUND_HALF_UP
 
-nasdaq_100.each do |symbol|
+nasdaq_100.each do |s|
   Stock.create!(
-    ticker: symbol,
-    company_name: client.company(symbol).company_name,
-    price: rand(10.0..1_1000.0),
-    quantity: rand(100..100_000),
-    logo: client.logo(symbol).url
+    symbol: s,
+    company_name: api.company(s).company_name,
+    market_cap: api.key_stats(s).market_cap
   )
 end

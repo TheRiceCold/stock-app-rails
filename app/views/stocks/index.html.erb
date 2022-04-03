@@ -3,10 +3,12 @@
 <h1>Stocks</h1>
 
 <div id="stocks">
-  <% @stocks.each do |stock| %>
-    <%= render stock %>
+  <% @stocks.each do |s| %>
+    <p><%= s[:symbol] %> </p>
+    <p><%= s[:company_name] %> </p>
+    <p><%= s[:market_cap] %> </p>
     <p>
-      <%= link_to "Show this stock", stock %>
+      <%= link_to "Show", s %>
     </p>
   <% end %>
 </div>
