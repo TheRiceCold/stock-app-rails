@@ -18,5 +18,11 @@ module StockAppRails
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    IEX::Api.configure do |config|
+      config.publishable_token = ENV['IEX_API_PUBLISHABLE_TOKEN']
+      config.secret_token = ENV['IEX_API_SECRET_TOKEN']
+      config.endpoint = 'https://cloud.iexapis.com/v1'
+    end
   end
 end
