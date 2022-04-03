@@ -35,3 +35,4 @@ end
 
 gem 'devise'
 gem 'cancancan'
+gem 'iex-ruby-client'

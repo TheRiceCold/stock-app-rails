@@ -17,25 +17,20 @@
 - As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the app.
 
 ## Entity Relationship Diagram
-
 ![ERD](docs/erd.jpg)
 
-## Routes
+## User Flow Diagram
+![UFD](docs/ufd.jpg)
 
-```
-root
-├── /stocks
-└── /users
-│   ├── /sign_in
-│   ├── /sign_up
-│   ├── /edit
-│   ├── /password
-│   │   ├── /new
-│   │   └── /edit
-    └── investments
-```
+## Technologies
+- Ruby v3.0.2
+- Rails v7.0.2
+- NodeJS v16.14.0
+- Yarn 1.22
+- PostgreSQL v14.2
+- Heroku CLI v7.59.4
 
-## Gems
+## Gems 
 - pg
 - devise
-- sassc-rails
+- cancancan
