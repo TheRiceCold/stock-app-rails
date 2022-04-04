@@ -36,3 +36,5 @@ end
 gem 'devise'
 gem 'cancancan'
 gem 'iex-ruby-client'
+gem 'activeadmin'
+gem 'active_skin'
