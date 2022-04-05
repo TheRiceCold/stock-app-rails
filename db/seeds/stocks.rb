@@ -33,10 +33,15 @@ nasdaq_100 = [
 api = IEX::Api::Client.new
 Money.rounding_mode = BigDecimal::ROUND_HALF_UP
 
+Stock.destroy_all
+
 nasdaq_100.each do |s|
   Stock.create!(
     symbol: s,
+    logo_url: api.logo(s).url,
     company_name: api.company(s).company_name,
+    latest_price: api.quote(s).latest_price,
+    quantity: rand(100..100_000),
     market_cap: api.key_stats(s).market_cap
   )
 end
