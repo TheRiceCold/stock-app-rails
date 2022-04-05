@@ -6,15 +6,13 @@ class StocksController < ApplicationController
     @stocks = Stock.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @stock = Stock.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @stock = Stock.new(stock_params)
