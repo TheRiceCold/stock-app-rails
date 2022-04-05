@@ -1,16 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Stocks</h1>
-
-<div id="stocks">
-  <% @stocks.each do |s| %>
-    <p><%= s[:symbol] %> </p>
-    <p><%= s[:company_name] %> </p>
-    <p><%= s[:market_cap] %> </p>
-    <p>
-      <%= link_to "Show", s %>
-    </p>
-  <% end %>
+<div class="container">
+  <p style="color: green">
+    <%= notice %>
+  </p>
+  <h1>Stocks</h1>
+    <%= turbo_stream_from "stocks" %>
+    <%= turbo_frame_tag "stocks" do %>
+      <%= render @stocks %>
+    <% end %>
 </div>
-
-<%= link_to "New stock", new_stock_path %>
