@@ -1,9 +1,13 @@
-<%= turbo_frame_tag dom_id stock do %>
-  <div class="card card-body">
-    <h4><%= stock.company_name %></h4>
-    <p> <strong> Market Cap: </strong>
-      <%= number_to_currency(stock.market_cap) %> 
-    </p>
-    <%= link_to "Show", stock %>
-  </div>
-<% end %>
+<div class="col-4">
+  <img src="<%= stock.logo_url %>" 
+       class="img-responsive img-rounded"
+       alt="<%= stock.symbol %>"
+   />
+  <h3 class="list-group-item-heading">
+    <%= stock.company_name %>
+  </h3>
+  <p> <strong> Market Cap: </strong>
+    <%= number_to_currency(stock.market_cap) %> 
+  </p>
+  <%= link_to "Show", stock, class: "btn btn-primary" %>
+</div>

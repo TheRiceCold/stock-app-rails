@@ -3,8 +3,7 @@
     <%= notice %>
   </p>
   <h1>Stocks</h1>
-    <%= turbo_stream_from "stocks" %>
-    <%= turbo_frame_tag "stocks" do %>
-      <%= render @stocks %>
-    <% end %>
+  <div class="row">
+    <%= render @stocks %>
+  </div>
 </div>

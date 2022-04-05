@@ -1,10 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @stock %>
-
+<p style="color: green">
+  <%= notice %>
+</p>
+<img src="<%= @stock.logo_url %>" 
+     class="img-responsive img-rounded"
+     alt="<%= @stock.company_name %> logo"
+ />
+<h3 class="list-group-item-heading">
+  <%= @stock.company_name %>
+</h3>
+<p> <strong>Ticker:</strong> 
+  <%= @stock.symbol %> 
+</p>
+<p> <strong>Latest Price:</strong> 
+  <%= number_to_currency(@stock.latest_price) %> 
+</p>
+<p> <strong>Quantity:</strong> 
+  <%= @stock.quantity %> 
+</p>
+<p> <strong>Market Cap:</strong>
+  <%= number_to_currency(@stock.market_cap) %> 
+</p>
 <div>
-  <%= link_to "Edit this stock", edit_stock_path(@stock) %> |
+  <%= button_to "Buy stock", @stock, class: "btn btn-primary" %>
   <%= link_to "Back to stocks", stocks_path %>
-
-  <%= button_to "Destroy this stock", @stock, method: :delete %>
 </div>

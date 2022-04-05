@@ -3,6 +3,9 @@ class CreateStocks < ActiveRecord::Migration[7.0]
     create_table :stocks do |t|
       t.string :symbol
       t.string :company_name
+      t.string :logo_url
+      t.decimal :latest_price
+      t.integer :quantity
       t.decimal :market_cap
 
       t.timestamps
