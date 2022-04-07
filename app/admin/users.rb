@@ -1,14 +1,18 @@
 ActiveAdmin.register User do
+  filter :email
+  filter :approved
+
+
  index do
         selectable_column
         id_column
         column :email
-        column :current_sign_in_at
-        column :sign_in_count
         column :created_at
         column :firstname
         column :lastname
-        column "Approved" do |user|
+        column :balance
+        column :approved?
+        column "Status" do |user|
           if user.approved == false
             link_to 'Inactive', active_user_path(user), method: :patch, data: {confirm: "Do you want to activate #{user.firstname}?"},:class => 'link', style: "color: red;"
           else 
@@ -17,12 +21,23 @@ ActiveAdmin.register User do
         end
         actions
   end
+
+  form do |f|
+    f.inputs do
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+      f.input :firstname
+      f.input :lastname
+    end
+    f.actions
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved
+  permit_params :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved
   #
   # or
   #
