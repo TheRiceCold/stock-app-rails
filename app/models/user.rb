@@ -18,4 +18,13 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates_presence_of :firstname, :lastname
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
+
+
+  def active_for_authentication? 
+    super && approved?
+  end 
+    
+  def inactive_message 
+    approved? ? super : :not_approved
+  end
 end
