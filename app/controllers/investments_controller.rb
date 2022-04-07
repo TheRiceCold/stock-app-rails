@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_investment, only: %i[show edit update destroy]
 
   def index

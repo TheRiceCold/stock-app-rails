@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.datetime "remember_created_at"
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.decimal "balance", precision: 8, scale: 2, default: "0.0"
+    t.decimal "wallet", precision: 8, scale: 2, default: "5000.0"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
