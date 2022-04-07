@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
 
   has_many :investments, dependent: :destroy
-  has_many :stocks, through: :investments
+  has_many :transactions, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates_presence_of :firstname, :lastname

@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_205655) do
   enable_extension "plpgsql"
 
   create_table "investments", force: :cascade do |t|
+    t.integer "quantity", default: 1
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
     t.datetime "created_at", null: false
@@ -27,17 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_205655) do
     t.string "symbol"
     t.string "logo_url"
     t.string "company_name"
-    t.decimal "latest_price"
+    t.decimal "latest_price", precision: 15, scale: 2
     t.integer "quantity"
-    t.decimal "market_cap"
+    t.decimal "market_cap", precision: 15, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "type"
-    t.integer "quantity"
-    t.decimal "price"
+    t.integer "type", null: false
+    t.integer "quantity", default: 1, null: false
+    t.decimal "price", precision: 15, scale: 2, null: false
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
     t.datetime "created_at", null: false

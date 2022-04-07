@@ -5,9 +5,7 @@
 <div id="investments">
   <% @investments.each do |investment| %>
     <%= render investment %>
-    <p>
-      <%= link_to "Show this investment", investment %>
-    </p>
+    <p><%= link_to "Show this investment", investment %></p>
   <% end %>
 </div>
 

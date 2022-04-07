@@ -33,4 +33,5 @@ end
 
 gem 'devise'
 gem 'cancancan'
+gem 'activeadmin'
 gem 'iex-ruby-client'
