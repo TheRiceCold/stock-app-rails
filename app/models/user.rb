@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :validatable
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :registerable, :recoverable,
          :rememberable, :validatable
@@ -10,7 +14,6 @@ class User < ApplicationRecord
     active: 1,
     archived: 2
   }, _prefix: true
-
 
   has_many :investments, dependent: :destroy
   has_many :transactions, dependent: :destroy
