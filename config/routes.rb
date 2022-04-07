@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :investments
@@ -9,7 +8,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
     confirmations: 'users/confirmations'
+    
   }
+    patch 'admin/users/:id/active', to: 'users#active', as: 'active_user'
+  patch 'admin/users/:id/inactive', to: 'users#inactive', as: 'inactive_user'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

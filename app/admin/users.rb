@@ -1,5 +1,22 @@
 ActiveAdmin.register User do
-
+ index do
+        selectable_column
+        id_column
+        column :email
+        column :current_sign_in_at
+        column :sign_in_count
+        column :created_at
+        column :firstname
+        column :lastname
+        column "Approved" do |user|
+          if user.approved == false
+            link_to 'Inactive', active_user_path(user), method: :patch, data: {confirm: "Do you want to activate #{user.firstname}?"},:class => 'link', style: "color: red;"
+          else 
+            link_to 'Active', inactive_user_path(user), method: :patch, data: {confirm: "Do you want to deactivate #{user.firstname}?"},:class => 'link', style: "color: green;"
+          end
+        end
+        actions
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -14,5 +31,5 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
