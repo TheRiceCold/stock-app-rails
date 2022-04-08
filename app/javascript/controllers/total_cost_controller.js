@@ -13,7 +13,7 @@ export default class extends Controller {
   update() {
     const {data: price} = this.priceTarget.lastChild
     const qty = this.quantityTarget.value
-    const total = (price.replace("$", "") * qty).toFixed(2)
-    this.totalTarget.value = "$"+total
+    const total = price.replace("$", "") * qty
+    this.totalTarget.value = "$"+total.toFixed(2)
   }
 }
