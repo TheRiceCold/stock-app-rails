@@ -6,8 +6,6 @@
 <div id="transactions">
   <% @transactions.each do |transaction| %>
     <%= render transaction %>
-    <p>
-      <%= link_to "Show this transaction", transaction %>
-    </p>
+    <%= link_to "Sell", transaction, class: "btn btn-primary" %>
   <% end %>
 </div>

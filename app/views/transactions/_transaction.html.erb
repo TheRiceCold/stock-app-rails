@@ -1,27 +1,13 @@
 <div id="<%= dom_id transaction %>">
-  <p>
-    <strong>Type:</strong>
-    <%= transaction.transaction_type %>
-  </p>
-
-  <p>
+  <img src="<%= logo_by_id transaction.stock_id %>" />
+  <h3><%= company_name_by_id transaction.stock_id %></h3>
+  <h5>
     <strong>Quantity:</strong>
     <%= transaction.quantity %>
-  </p>
+  </h5>
 
-  <p>
-    <strong>Price:</strong>
-    <%= transaction.price %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= transaction.user_id %>
-  </p>
-
-  <p>
-    <strong>Stock:</strong>
-    <%= transaction.stock_id %>
-  </p>
-
+  <h5>
+    <strong>Total cost:</strong>
+    <%= number_to_currency transaction.total_cost %>
+  </h5>
 </div>
