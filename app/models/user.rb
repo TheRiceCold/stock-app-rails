@@ -9,15 +9,14 @@ class User < ApplicationRecord
          :registerable, :recoverable,
          :rememberable, :validatable
 
-  enum status: {
-    pending: 0,
-    active: 1,
-    archived: 2
-  }, _prefix: true
-
   has_many :transactions, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
-  validates_presence_of :firstname, :lastname
+  validates :email, uniqueness: true
+  validates_presence_of :email, :firstname, :lastname, :wallet
   validates :wallet, numericality: { greater_than_or_equal_to: 0 }
+
+  enum status: {
+    pending: 0,
+    approved: 1
+  }, _prefix: true
 end

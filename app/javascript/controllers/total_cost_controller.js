@@ -7,8 +7,9 @@ export default class extends Controller {
   connect() {
     console.log("total-cost-controller connected") 
     const {data: price} = this.priceTarget.lastChild
-    this.totalTarget.value = price
+    this.totalTarget.value = price.trim()
   }
+
   update() {
     const {data: price} = this.priceTarget.lastChild
     const qty = this.quantityTarget.value

@@ -17,27 +17,5 @@
   <h5><strong>Quantity:</strong> 
     <%= @stock.quantity %> 
   </h5>
-  <h5><strong>Market Cap:</strong>
-    <%= number_to_currency @stock.market_cap %> 
-  </h5>
-
-  <h5>
-    <strong>Total Cost:</strong>
-    <input readonly="true" data-total-cost-target="total"/>
-  </h5>
-  <%= form_with model: @investment do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :stock_id, value: @stock %>
-    <h5>
-      <strong>Quantity:</strong>
-      <%= f.number_field :quantity, 
-        min: 1, max: @stock.quantity,
-        data: { 
-          action: "keyup->total-cost#update", 
-          total_cost_target: "quantity"
-        } 
-      %>
-    </h5>
-    <%= f.submit value: "Buy", class: "btn btn-primary" %>
-  <% end %>
+  <%= render "form" %>
 </div>

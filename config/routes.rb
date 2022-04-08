@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  get "stocks/:id/buy", to: "stocks#buy", as: "user_buy_stock"
-  resources :stocks
-  resources :transactions, only: [:index, :create, :destroy]
-  resources :investments, only: [:index, :create, :destroy]
+  # post "stocks/:id", to: "transactions#create"
+  resources :stocks, only: [:index, :show]
+  resources :investments, only: [:index, :show]
+  resources :transactions, only: [:index, :show, :create]
 
   # Defines the root path route ("/")
   root "pages#home"
