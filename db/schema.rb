@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +29,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+>>>>>>> merge-dale-quevon
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
@@ -43,20 +51,41 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
   create_table "investments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
+=======
+>>>>>>> merge-dale-quevon
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stock_id"], name: "index_investments_on_stock_id"
-    t.index ["user_id"], name: "index_investments_on_user_id"
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
+    t.string "logo_url"
     t.string "company_name"
+<<<<<<< HEAD
     t.decimal "latest_price"
     t.integer "quantity"
     t.decimal "market_cap"
+=======
+    t.decimal "latest_price", precision: 15, scale: 2
+    t.integer "quantity"
+    t.decimal "market_cap", precision: 15, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "transaction_type", default: 0, null: false
+    t.integer "quantity", default: 1, null: false
+    t.decimal "total_cost", precision: 15, scale: 2, null: false
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
+>>>>>>> merge-dale-quevon
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_transactions_on_stock_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,7 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
     t.datetime "remember_created_at"
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.decimal "balance", precision: 8, scale: 2, default: "0.0"
+    t.decimal "wallet", precision: 15, scale: 2, default: "5000.0"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,6 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "investments", "stocks"
-  add_foreign_key "investments", "users"
+  add_foreign_key "transactions", "stocks"
+  add_foreign_key "transactions", "users"
 end

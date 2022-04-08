@@ -10,9 +10,16 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
     
   }
-    patch 'admin/users/:id/active', to: 'users#active', as: 'active_user'
+
+  patch 'admin/users/:id/active', to: 'users#active', as: 'active_user'
   patch 'admin/users/:id/inactive', to: 'users#inactive', as: 'inactive_user'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+
+  # post "stocks/:id", to: "transactions#create"
+  resources :stocks, only: [:index, :show]
+  resources :investments, only: [:index, :show]
+  resources :transactions, only: [:index, :show, :create]
 
   # Defines the root path route ("/")
   root "pages#home"

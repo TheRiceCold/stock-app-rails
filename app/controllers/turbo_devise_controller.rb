@@ -2,9 +2,9 @@ class TurboDeviseController < ApplicationController
   class Responder < ActionController::Responder
     def to_turbo_stream
       controller.render(options.merge(formats: :html))
-    rescue ActionView::MissingTemplate => e
+    rescue ActionView::MissingTemplate => err
       if get?
-        raise e
+        raise err
       elsif has_errors? && default_action
         render rendering_options.merge(formats: :html, status: :unprocessable_entity)
       else

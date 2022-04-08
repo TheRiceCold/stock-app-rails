@@ -16,6 +16,39 @@
 - As an Admin, I want to see all the trader that registered in the app so I can track all the traders.
 - As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the app.
 
+## Schema
+
+- Users
+  - email (string)
+  - encrypted_password (string)
+  - reset_password_token (string)
+  - reset_password_sent_at (datetime)
+  - remember_created_at (datetime)
+  - firstname (string)
+  - lastname (string)
+  - status (integer(enum))
+  - wallet (decimal)
+
+- Stocks
+  - symbol(string)
+  - logo_url(string)
+  - company_name(string)
+  - latest_price(decimal)
+  - quantity(integer)
+  - market_cap(decimal)
+
+- Investments
+  - user_id(reference)
+  - stock_id(reference)
+
+- Transactions
+  - type (integer(enum))
+  - quantity (integer)
+  - price (decimal)
+  - user_id (reference)
+  - stock_id (reference)
+
+
 ## Entity Relationship Diagram
 ![ERD](docs/erd.jpg)
 

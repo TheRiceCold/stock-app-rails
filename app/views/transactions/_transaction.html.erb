@@ -1,0 +1,13 @@
+<div id="<%= dom_id transaction %>">
+  <img src="<%= logo_by_id transaction.stock_id %>" />
+  <h3><%= company_name_by_id transaction.stock_id %></h3>
+  <h5>
+    <strong>Quantity:</strong>
+    <%= transaction.quantity %>
+  </h5>
+
+  <h5>
+    <strong>Total cost:</strong>
+    <%= number_to_currency transaction.total_cost %>
+  </h5>
+</div>
