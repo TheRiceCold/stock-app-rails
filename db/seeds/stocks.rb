@@ -1,3 +1,5 @@
+Stock.destroy_all
+
 # april 3, 2022
 # nasdaq.com/market-activity/quotes/nasdaq-ndx-index
 
@@ -32,8 +34,6 @@ nasdaq_100 = [
 
 api = IEX::Api::Client.new
 Money.rounding_mode = BigDecimal::ROUND_HALF_UP
-
-Stock.destroy_all
 
 nasdaq_100.each do |s|
   Stock.create!(

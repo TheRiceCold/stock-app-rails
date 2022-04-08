@@ -1,5 +1,5 @@
 class Stock < ApplicationRecord
-  has_many :invesments, dependent: :destroy
+  has_many :transactions, dependent: :destroy
   validates :company_name, presence: true
   validates_presence_of :symbol, :company_name, :latest_price, :quantity
 

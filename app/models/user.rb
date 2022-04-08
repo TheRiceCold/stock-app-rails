@@ -15,10 +15,9 @@ class User < ApplicationRecord
     archived: 2
   }, _prefix: true
 
-  has_many :investments, dependent: :destroy
   has_many :transactions, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates_presence_of :firstname, :lastname
-  validates :balance, numericality: { greater_than_or_equal_to: 0 }
+  validates :wallet, numericality: { greater_than_or_equal_to: 0 }
 end

@@ -26,16 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "investments", force: :cascade do |t|
-    t.integer "quantity", default: 1
-    t.bigint "user_id", null: false
-    t.bigint "stock_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["stock_id"], name: "index_investments_on_stock_id"
-    t.index ["user_id"], name: "index_investments_on_user_id"
-  end
-
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.string "logo_url"
@@ -67,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.datetime "remember_created_at"
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.decimal "wallet", precision: 8, scale: 2, default: "5000.0"
+    t.decimal "wallet", precision: 15, scale: 2, default: "5000.0"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,8 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "investments", "stocks"
-  add_foreign_key "investments", "users"
   add_foreign_key "transactions", "stocks"
   add_foreign_key "transactions", "users"
 end
