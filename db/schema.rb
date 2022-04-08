@@ -53,7 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.decimal "total_cost", precision: 15, scale: 2, null: false
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
->>>>>>> merge-dale-quevon
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stock_id"], name: "index_transactions_on_stock_id"
