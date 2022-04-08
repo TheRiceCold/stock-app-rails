@@ -19,7 +19,7 @@ class User < ApplicationRecord
     pending: 0,
     approved: 1
   }, _prefix: true
-<<<<<<< HEAD
+
 
 
   has_many :investments, dependent: :destroy
@@ -37,6 +37,5 @@ class User < ApplicationRecord
   def inactive_message 
     approved? ? super : :not_approved
   end
-=======
->>>>>>> merge-dale-quevon
+
 end
