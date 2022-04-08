@@ -10,38 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_062700) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
-
-=======
 ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
->>>>>>> merge-dale-quevon
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
@@ -51,8 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
   create_table "investments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
-=======
->>>>>>> merge-dale-quevon
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
@@ -63,11 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_052814) do
     t.string "symbol"
     t.string "logo_url"
     t.string "company_name"
-<<<<<<< HEAD
-    t.decimal "latest_price"
-    t.integer "quantity"
-    t.decimal "market_cap"
-=======
     t.decimal "latest_price", precision: 15, scale: 2
     t.integer "quantity"
     t.decimal "market_cap", precision: 15, scale: 2
