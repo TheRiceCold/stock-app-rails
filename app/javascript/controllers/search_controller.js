@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from "axios"
+import Rails from "@rails/ujs"
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="search"

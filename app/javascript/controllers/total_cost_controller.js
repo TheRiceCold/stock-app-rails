@@ -4,8 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["total", "price", "quantity"]
 
-  connect() {
-    console.log("total-cost-controller connected") 
+  initialize() {
     const {data: price} = this.priceTarget.lastChild
     this.totalTarget.value = price.trim()
   }

@@ -17,6 +17,7 @@
       <%= render 'layouts/alerts' %>
     </header>
     <main>
+      <%= turbo_frame_tag :modal %>
       <%= yield %>
     </main>
   </body>

@@ -7,7 +7,7 @@
     <%= stock.company_name %>
   </h3>
   <p> <strong> Market Cap: </strong>
-    <%= number_to_currency(stock.market_cap) %> 
+    <%= number_to_currency stock.market_cap %> 
   </p>
   <%= link_to "Buy", stock, class: "btn btn-primary" %>
 </div>

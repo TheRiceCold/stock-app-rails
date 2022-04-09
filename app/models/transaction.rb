@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :user
   validates :quantity, numericality: { greater_than: 0 }
-  # validates :total_cost, numericality: { greater_than: 0 }
+  validates :total_cost, numericality: { greater_than: 0 }
   enum transaction_type: [:buy, :sell]
 
   before_save :compute_total_cost
@@ -12,12 +12,25 @@ class Transaction < ApplicationRecord
 
     case self.transaction_type
     when transaction_type.buy
-      updated_qty = self.quantity - stock.quantity
+      updated_qty = stock.quantity - self.quantity
     when transaction_type.sell
-      updated_qty = self.quantity + stock.quantity
+      updated_qty = stock.quantity + self.quantity
     end
 
-    stock.update(quantity: updated_qty)
+    stock.update quantity: updated_qty
+  end
+
+  def update_user_wallet
+    user = User.find self.user_id
+
+    case self.transaction_type
+    when transaction_type.buy
+      updated_wallet = user.wallet - self.total_cost
+    when transaction_type.sell
+      updated_wallet = user.wallet + self.total_cst
+    end
+
+    user.update wallet: updated_wallet
   end
 
   def compute_total_cost
