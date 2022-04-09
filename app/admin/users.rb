@@ -10,7 +10,6 @@ ActiveAdmin.register User do
         column :created_at
         column :firstname
         column :lastname
-        column :balance
         column :approved?
         column "Status" do |user|
           if user.approved == false
@@ -29,7 +28,6 @@ ActiveAdmin.register User do
       f.input :password_confirmation
       f.input :firstname
       f.input :lastname
-      f.input :balance
     end
     f.actions
   end
