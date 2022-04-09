@@ -10,7 +10,6 @@ class StocksController < ApplicationController
   end
 
   private
-
   def set_all_stocks
     @stocks = Stock.all
   end

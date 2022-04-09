@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :investments, only: :index
   resources :stocks, only: [:index, :show]
   resources :transactions, only: [:index, :show, :create]
+  get "investments", to: "pages#investments", as: "investments"
 
   root "pages#home"
 end

@@ -9,7 +9,7 @@
     <%= f.number_field :quantity, 
       min: 1, max: @stock.quantity,
       data: { 
-        action: "keyup->total-cost#update", 
+        action: "change->total-cost#update", 
         total_cost_target: "quantity"
       } 
     %>
