@@ -1,0 +1,34 @@
+- if type == 'email'
+  .form-control
+    .form-icon
+      i.fa.fa-envelope
+
+    .form-field
+      = f.label input
+      br
+      = f.email_field input,
+        autocomplete: 'email',
+        data: { auth_target: 'input' }
+
+- elsif type == 'password'
+  .form-control
+    .form-icon
+      i.fas.fa-lock
+
+    .form-field
+      = f.label input
+      br
+      = f.password_field input,
+        autocomplete: 'new-password',
+        data: { auth_target: 'input' }
+
+- else 
+  .form-control
+    .form-icon
+      i.fas.fa-user
+
+    .form-field
+      = f.label input
+      br
+      = f.text_field input,
+        data: { auth_target: 'input' }
