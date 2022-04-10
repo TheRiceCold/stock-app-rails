@@ -1,0 +1,36 @@
+nav.sidebar
+  .sidebar-container
+    h3.title Menu
+    ul
+      li = link_to root_path
+        i.fas.fa-home
+        span Home
+
+      li = link_to root_path
+        i.fas.fa-heart
+        span Favorite
+
+      li = link_to root_path
+        i.fas.fa-lock
+        span Security
+
+      li = link_to root_path
+        i.fas.fa-info-circle
+        span Help
+
+      li = link_to root_path
+        i.fas.fa-cog
+        span Settings
+
+    .note
+      h1 What's new
+
+      p Stay notified with the latest updates and 
+        bug fixes in this brand new version 4
+
+      = link_to 'Learn More', 
+        root_path, 
+        class: 'note-btn'
+
+    .sidebar-footer
+      p &copy; Lorem ipsum dolor

@@ -29,7 +29,6 @@
 
   = form.submit 'Sign up', class: 'form-btn'
 
-  - if controller_name != 'sessions'
-    = link_to 'Log in', 
-      new_session_path(resource_name), 
-      class: 'auth-links'
+  = link_to 'Log in', 
+    new_session_path(resource_name), 
+    class: 'auth-links'
