@@ -4,12 +4,12 @@ class StocksController < ApplicationController
   before_action :set_stock, only: :show
 
   def index; end
+
   def show
     @transaction = current_user.transactions.build
   end
 
   private
-
   def set_all_stocks
     @stocks = Stock.all
   end

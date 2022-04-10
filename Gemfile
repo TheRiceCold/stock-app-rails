@@ -32,6 +32,8 @@ group :test do
 end
 
 gem 'devise'
+gem 'ransack'
 gem 'cancancan'
+gem 'slim-rails'
 gem 'activeadmin'
 gem 'iex-ruby-client'

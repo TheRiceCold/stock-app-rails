@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Stock Trading App
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+
+    = stylesheet_link_tag 'application', "data-turbo-track": 'reload'
+    = javascript_importmap_tags
+  body
+    - if user_signed_in?
+      = render 'layouts/header'
+
+    main
+      = turbo_frame_tag :modal
+      = yield

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  ActiveAdmin.routes self
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,11 +9,9 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  # post "stocks/:id", to: "transactions#create"
   resources :stocks, only: [:index, :show]
-  resources :investments, only: [:index, :show]
   resources :transactions, only: [:index, :show, :create]
+  get "investments", to: "pages#investments", as: "investments"
 
-  # Defines the root path route ("/")
   root "pages#home"
 end

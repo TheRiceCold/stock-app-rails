@@ -1,6 +1,4 @@
 class Stock < ApplicationRecord
-  has_many :transactions, dependent: :destroy
-
   validates_presence_of :symbol, :company_name, :latest_price, :quantity
   validates :symbol, uniqueness: true
   validates :quantity, numericality: { greater_than: 0 }

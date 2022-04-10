@@ -1,0 +1,35 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| 
+  = render 'users/shared/error_messages', resource: resource
+  h1.form-title Create an Account
+
+  = render 'input',
+    f: form,
+    type: 'email',
+    input: :email
+
+  = render 'input',
+    f: form,
+    type: 'text',
+    input: :firstname
+
+  = render 'input',
+    f: form,
+    type: 'text',
+    input: :lastname
+
+  = render 'input',
+    f: form,
+    type: 'password',
+    input: :password
+
+  = render 'input',
+    f: form,
+    type: 'password',
+    input: :password_confirmation
+
+  = form.submit 'Sign up', class: 'form-btn'
+
+  - if controller_name != 'sessions'
+    = link_to 'Log in', 
+      new_session_path(resource_name), 
+      class: 'auth-links'
