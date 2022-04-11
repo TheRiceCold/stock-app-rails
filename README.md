@@ -46,6 +46,11 @@
   - user_id (reference)
   - stock_id (reference)
 
+- Investments
+  - quantity (integer)
+  - user_id (reference)
+  - stock_id (reference)
+
 
 ## Entity Relationship Diagram
 ![ERD](docs/erd.jpg)
@@ -62,10 +67,8 @@
 - Heroku CLI v7.59.4
 
 ## Gems 
-- pg
 - devise
 - ransack
-- cancancan
 - activeadmin
 - iex-ruby-client
 - dotenv-rails (development)

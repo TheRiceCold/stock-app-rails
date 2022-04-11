@@ -13,8 +13,5 @@ html
     = javascript_importmap_tags
   body
     main.container
-      - if user_signed_in?
-        = render 'layouts/sidebar'
-
       = turbo_frame_tag :modal
       = yield
