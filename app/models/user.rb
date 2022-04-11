@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :rememberable, :validatable
 
   has_many :transactions, dependent: :destroy
+  has_many :investments, dependent: :destroy
 
   validates_presence_of :email, :firstname, :lastname, :wallet
   validates :wallet, numericality: { greater_than_or_equal_to: 0 }

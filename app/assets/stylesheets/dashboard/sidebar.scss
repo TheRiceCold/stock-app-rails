@@ -5,7 +5,8 @@
   padding: 2em;
   position: fixed;
   max-width: 18em;
-  background: linear-gradient(0deg, #0c1839, #1c2145);
+  background: #1c1c1c;
+  border-right: 1px solid #999;
 
   @media screen and (max-width: 1050px) {
     max-width: initial;
@@ -27,26 +28,26 @@
       li {
         display: block;
         padding: 1em 0;
-        border-bottom: 1px #21284c solid;
       }
       a {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         i {
-          color: #6b6f8a;
+          color: #999;
           transition: .3s;
           margin-right: 0.7em;
           @media screen and (max-width: 1050px) {
             margin: 0;
           }
         }
-        &:hover { i { color: #fff; } }
+        &:hover { i { color: whitesmoke; } }
       }
     }
 
     .sidebar-footer {
       margin: 18em 0;
+      p { color: whitesmoke; }
       @media screen and (max-width: 1050px) {
         display: none;
       }

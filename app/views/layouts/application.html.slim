@@ -13,9 +13,9 @@ html
     = stylesheet_link_tag 'application', "data-turbo-track": 'reload'
     = javascript_importmap_tags
   body
-    - if user_signed_in?
-      = render 'layouts/sidebar'
+    main.container
+      - if user_signed_in?
+        = render 'layouts/sidebar'
 
-    main
       = turbo_frame_tag :modal
       = yield

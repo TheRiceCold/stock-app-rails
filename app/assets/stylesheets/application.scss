@@ -34,8 +34,7 @@ body{
 .auth-page { @include auth_page; }
 
 .container {
-  color: #fff;
-  background: #172042;
+  color: whitesmoke;
 
   @media screen and (max-width: 400px) {
     font-size: 13px;
@@ -43,7 +42,7 @@ body{
 
   h1, h2, h3, h4 { margin: 0; }
   a {
-    color: #fff;
+    color: whitesmoke;
     text-decoration: none;
   }
   p {
