@@ -15,7 +15,6 @@
 */
 
 @import 'auth_page';
-@import 'dashboard/navbar';
 @import 'dashboard/sidebar';
 
 * {
@@ -29,6 +28,7 @@ body{
   padding: 0;
   font-family: Poppins, sans-serif;
   min-height: 100vh;
+  background: #1c1c1c;
 }
 
 .auth-page { @include auth_page; }
@@ -63,12 +63,10 @@ body{
     background: #6b6f8a;
   }
 
-  nav.navbar { @include navbar; }
   nav.sidebar { @include sidebar; }
 
   .dashboard {
     right: 0;
-    top: 4.1em;
     padding: 2em;
     display: grid;
     grid-gap: 2em;
@@ -76,7 +74,7 @@ body{
     overflow-x: hidden;
     background: #172042;
     justify-content: center;
-    width: calc(100% - 18em);
+    width: calc(100% - 14em);
     grid-template-columns: 1fr 1fr 1fr;
 
     @media screen and (max-width: 1050px) {

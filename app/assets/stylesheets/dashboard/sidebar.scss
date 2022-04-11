@@ -1,11 +1,10 @@
 @mixin sidebar {
   left: 0;
   top: 0;
-  height: 100%;
+  height: 100vh;
+  padding: 2em;
   position: fixed;
   max-width: 18em;
-  padding: 5em 2em 0 2em;
-  overflow-y: scroll;
   background: linear-gradient(0deg, #0c1839, #1c2145);
 
   @media screen and (max-width: 1050px) {
@@ -15,19 +14,12 @@
     span { display: none; }
   }
 
-  .sidebar .title {
-    color: #6b6f8a;
-    font-weight: 400;
-  }
-
   .sidebar-container {
     position: relative;
     height: 100%;
 
     @media screen and (max-height: 700px) {
-      .sidebar .container {
-        height: auto;
-      }
+      .sidebar .container { height: auto; }
     }
 
     ul {
@@ -53,31 +45,8 @@
       }
     }
 
-    .note {
-      @media screen and (max-width: 1050px) {
-        display: none;
-      }
-
-      background: linear-gradient(90deg, #0e133d, #1d1d4d);
-      box-shadow: 
-        0 0 10px rgba(0, 0, 0, 0.5),
-        inset 5px 5px 0 #10183b,
-        inset -5px -5px 0 #161e41;
-      padding: 1.5rem;
-      border-radius: 15px;
-
-      .note-btn {
-        font-size: 1.2em;
-        border-radius: 2em;
-        padding: 0.5em 1.5em;
-        display: inline-block;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(90deg, #178add, #03cdee);
-      }
-    }
-
     .sidebar-footer {
-      padding: 3em 1em 1em 1em;
+      margin: 18em 0;
       @media screen and (max-width: 1050px) {
         display: none;
       }
