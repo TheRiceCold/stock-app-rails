@@ -17,6 +17,7 @@
 @import 'auth_page/main';
 @import 'dashboard/main';
 @import 'dashboard/sidebar';
+@import 'transactions/main';
 @import 'stocks_market/main';
 
 * {
@@ -60,6 +61,7 @@ main.container {
   ::-webkit-scrollbar-thumb { background: #6b6f8a; }
 
   aside.sidebar { @include sidebar; }
-  .dashboard { @include dashboard; }
+  section.dashboard { @include dashboard; }
   section.stock-market { @include stocks; }
+  section.transactions { @include transactions; }
 }

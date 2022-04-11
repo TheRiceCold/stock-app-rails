@@ -95,8 +95,65 @@ export default class extends Controller {
     }]
 
     const pieChartLayout = {
-      paper_bgcolor: "#172042"
+      paper_bgcolor: "#1c1c1c",
+      plot_bgcolor: "#1c1c1c",
+      piecolorway: ["#ea335d", "#03dcee", "#178add"],
+      showlegend: false,
+      margin: {
+        l: 10, r: 10, b: 10, t: 10, pad: 1
+      },
+      height: 300, width: 300
     }
+
+    Plotly.newPlot("pieChart", pieChartData, pieChartLayout)
+
+    const donutChartData = [{
+      values: [10, 40, 50],
+      labels: ["Sep", "Oct", "Nov"],
+      hole: 0.4, type: "pie"
+    }]
+
+    Plotly.newPlot("donutChart", donutChartData, pieChartLayout)
+
+    let carpetChartData = {
+      type: "carpet",
+      a: [4, 4, 4, 4.5, 4.5, 4.5, 5, 5, 5, 6, 6, 6],
+      b: [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3],
+      y: [2, 3.5, 4, 3, 4.5, 5, 5.5, 6.5, 7.5, 8, 8.5, 10],
+      aaxis: {
+        tickprefix: "a = ",
+        ticksuffix: "m",
+        smoothing: 1,
+        minorgridcount: 9,
+        minorgridcolor: "#ea335d",
+        gridcolor: "#ea335d",
+        color: "#03dcee"
+      },
+      baxis: {
+        tickprefix: "b = ",
+        ticksuffix: "Pa",
+        smoothing: 1,
+        minorgridcount: 9,
+        minorgridcolor: "#ea335d",
+        gridcolor: "#ea335d",
+        color: "#03dcee"
+      }
+    }
+
+    const carpetChartLayout = {
+      paper_bgcolor: "#1c1c1c",
+      plot_bgcolor: "#1c1c1c",
+      showlegend: false,
+      margin: {
+        l: 10, r: 10, b: 10, t: 10, pad: 1
+      },
+      font: { color: "#6b6f8a" },
+      height: 300, width: 300
+    }
+
+    Plotly.newPlot(
+      "carpetChart", [carpetChartData], carpetChartLayout
+    )
   }
 
   navClick() {
