@@ -1,36 +1,29 @@
 nav.sidebar
   .sidebar-container
-    h3.title Menu
     ul
       li = link_to root_path
         i.fas.fa-home
         span Home
 
-      li = link_to root_path
-        i.fas.fa-heart
-        span Favorite
+      li = link_to portfolio_path
+        i.fas.fa-folder
+        span Portfolio
 
-      li = link_to root_path
-        i.fas.fa-lock
-        span Security
+      li = link_to transactions_path
+        i.fas.fa-history
+        span Transaction History
 
-      li = link_to root_path
-        i.fas.fa-info-circle
-        span Help
+      li = link_to stocks_path
+        i.fas.fa-search-dollar
+        span Stock Market
 
-      li = link_to root_path
+      li = link_to edit_user_registration_path
         i.fas.fa-cog
-        span Settings
+        span Account Settings
 
-    .note
-      h1 What's new
-
-      p Stay notified with the latest updates and 
-        bug fixes in this brand new version 4
-
-      = link_to 'Learn More', 
-        root_path, 
-        class: 'note-btn'
+      li = link_to destroy_user_session_path
+        i.fas.fa-door-open
+        span Logout
 
     .sidebar-footer
-      p &copy; Lorem ipsum dolor
+      p &copy; Batch 15 Stock App

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :stocks, only: [:index, :show]
   resources :transactions, only: [:index, :show, :create]
-  get "investments", to: "pages#investments", as: "investments"
+  get "portfolio", to: "investments#index", as: "portfolio"
 
   root "pages#home"
 end

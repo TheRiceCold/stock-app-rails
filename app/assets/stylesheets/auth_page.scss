@@ -22,7 +22,7 @@
       width: 360px;
 
       .form-title {
-        color: #333;
+        color: whitesmoke;
         margin: 15px 0;
         font-size: 2.9rem;
         text-transform: uppercase;
@@ -34,7 +34,7 @@
         padding: 5px 0;
         position: relative;
         grid-template-columns: 7% 93%;
-        border-bottom: 2px solid #d9d9d9;
+        border-bottom: 2px solid whitesmoke;
 
         &:after, &:before {
           width: 0;
@@ -42,7 +42,7 @@
           content: '';
           bottom: -2px;
           position: absolute;
-          background: #38d39f;
+          background: #00b982;
           transition: .3s;
         }
 
@@ -51,7 +51,7 @@
 
         &.focus {
           &:after, &:before { width: 50%; }
-          .form-icon i { color: #38d39f; }
+          .form-icon i { color: #00b982; }
           .form-field label {
             top: -5px;
             font-size: 15px;
@@ -63,7 +63,7 @@
           align-items: center;
           justify-content: center;
           i { 
-            color: #d9d9d9;
+            color: whitesmoke;
             transition: .3s;
           }
         }
@@ -93,7 +93,7 @@
             background: none;
             padding: .5rem .7rem;
             font-size: 1.2rem;
-            color: #555;
+            color: whitesmoke;
           }
         }
       }
@@ -102,40 +102,41 @@
         display: block;
         text-align: right;
         text-decoration: none;
-        color: #999;
-        font-size: .9rem;
-        transition: .3s;
-        &:hover { color: #38d39f; }
+        color: whitesmoke;
+        font-size: 1rem;
+        transition: .2s;
+        &:hover { color: #00b982; }
       }
 
       .form-btn {
         display: block;
         width: 100%;
         height: 50px;
-        border-radius: 25px;
+        border-radius: 10px;
         margin: 1rem 0;
         font-size: 1.2rem;
         outline: none;
         border: none;
-        background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+        background: #00b982;
         cursor: pointer;
         color: #fff;
         text-transform: uppercase;
         background-size: 200%;
-        transition: .5s;
+        transition: .2s;
 
         &:hover {
-          background-position: right;
+          background: none;
+          border: 1px solid #00b982;
         }
       }
+
+      .remember-me { color: whitesmoke; }
     }
   }
 
   @media screen and (max-width: 1050px) { grid-gap: 5rem; }
   @media screen and (max-width: 1000px) {
-    auth-img img {
-      width: 400px;
-    }
+    auth-img img { width: 400px; }
     form {
       width: 290;
       h2 { 

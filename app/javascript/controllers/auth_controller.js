@@ -11,8 +11,10 @@ export default class extends Controller {
       input.addEventListener('focus', () => 
         parent.classList.add('focus'))
 
-      input.addEventListener('blur', () => 
-        parent.classList.remove('focus'))
+      input.addEventListener('blur', () => {
+        if (!input.value)
+          parent.classList.remove('focus')
+      })
     })
   }
 
