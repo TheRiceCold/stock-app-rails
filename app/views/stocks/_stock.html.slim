@@ -13,5 +13,6 @@ article.stock
     strong Quantity:&nbsp;
     = quantity
 
-  = link_to 'Show', 
-    stock, class: 'stock-btn'
+  = link_to 'Show', stock, 
+    class: 'stock-btn', 
+    data: {turbo_frame: 'modal'}
