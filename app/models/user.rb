@@ -22,4 +22,5 @@ class User < ApplicationRecord
     pending: 0,
     approved: 1
   }, _prefix: true
+
 end
