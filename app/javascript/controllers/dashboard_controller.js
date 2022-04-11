@@ -17,9 +17,7 @@ export default class extends Controller {
       y: [20, 14, 23],
       name: "SF Zoo",
       type: "bar",
-      marker: { 
-        color: "#ea335d"
-      },
+      marker: { color: "#00c8f2" }
     }
 
     const barChartTrace2 = {
@@ -27,18 +25,15 @@ export default class extends Controller {
       y: [20, 14, 23],
       name: "LA Zoo",
       type: "bar",
-      marker: { 
-        color: "#ea335d",
-        opacity: 0.6
-      },
+      marker: { opacity: 0 }
     }
 
     const barChartData = [barChartTrace1, barChartTrace2]
 
     const layout = {
       barmode: "stack",
-      paper_bgcolor: "#172042",
-      plot_bgcolor: "#172042",
+      paper_bgcolor: "#1c1c1c",
+      plot_bgcolor: "#1c1c1c",
       showlegend: false,
       margin: {
         l: 30, r: 30, b: 30, t: 30, pad: 1,
@@ -60,7 +55,7 @@ export default class extends Controller {
           name: "AAPL High",
           x: unpack(rows, "Date"),
           y: unpack(rows, "AAPL.High"),
-          line: { color: "#ea335d" }
+          line: { color: "#00c8f2" }
         }
 
         let trace2 = {
@@ -69,13 +64,13 @@ export default class extends Controller {
           name: "AAPL Low",
           x: unpack(rows, "Date"),
           y: unpack(rows, "AAPL.Low"),
-          line: { color: "#03dcee" }
+          line: { color: "#f9004e" }
         }
 
         let data = [trace1, trace2]
         const layout = {
-          paper_bgcolor: "#172042",
-          plot_bgcolor: "#172042",
+          paper_bgcolor: "#1c1c1c",
+          plot_bgcolor: "#1c1c1c",
           showlegend: false,
           margin: { l: 30, r: 30, b: 30, t: 30, pad: 1 },
           font: { color: "#6b6f8a" },
@@ -100,8 +95,8 @@ export default class extends Controller {
     }]
 
     const pieChartLayout = {
-      paper_bgcolor: "#172042",
-      plot_bgcolor: "#172042",
+      paper_bgcolor: "#1c1c1c",
+      plot_bgcolor: "#1c1c1c",
       piecolorway: ["#ea335d", "#03dcee", "#178add"],
       showlegend: false,
       margin: {
@@ -146,8 +141,8 @@ export default class extends Controller {
     }
 
     const carpetChartLayout = {
-      paper_bgcolor: "#172042",
-      plot_bgcolor: "#172042",
+      paper_bgcolor: "#1c1c1c",
+      plot_bgcolor: "#1c1c1c",
       showlegend: false,
       margin: {
         l: 10, r: 10, b: 10, t: 10, pad: 1

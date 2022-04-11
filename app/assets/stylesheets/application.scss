@@ -14,8 +14,11 @@
 *= require_self
 */
 
-@import 'auth_page';
+@import 'auth_page/main';
+@import 'dashboard/main';
 @import 'dashboard/sidebar';
+@import 'transactions/main';
+@import 'stocks_market/main';
 
 * {
   margin: 0;
@@ -24,16 +27,14 @@
 }
 
 body{
-  margin: 0;
-  padding: 0;
-  font-family: Poppins, sans-serif;
   min-height: 100vh;
   background: #1c1c1c;
+  font-family: Poppins, sans-serif;
 }
 
-.auth-page { @include auth_page; }
+main.auth-page { @include auth_page; }
 
-.container {
+main.container {
   color: whitesmoke;
 
   @media screen and (max-width: 400px) {
@@ -57,137 +58,10 @@ body{
   }
 
   ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-thumb { background: #6b6f8a; }
 
-  ::-webkit-scrollbar-thumb {
-    background: #6b6f8a;
-  }
-
-  nav.sidebar { @include sidebar; }
-
-  .dashboard {
-    right: 0;
-    padding: 2em;
-    display: grid;
-    grid-gap: 2em;
-    position: absolute;
-    overflow-x: hidden;
-    background: #172042;
-    justify-content: center;
-    width: calc(100% - 14em);
-    grid-template-columns: 1fr 1fr 1fr;
-
-    @media screen and (max-width: 1050px) {
-      .title { display: none; }
-      width: calc(100% - 4.1em);
-    }
-
-    @media screen and (max-width: 1150px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media screen and (max-width: 750px) {
-      grid-template-columns: 1fr;
-    }
-
-    .panel {
-      overflow: hidden;
-      border-radius: 15px;
-      background: linear-gradient(90deg, #262a4f, #122442);
-    }
-
-    .list li {
-      display: flex;
-      padding: 1.2em;
-      align-items: center;
-      justify-content: space-between;
-
-      &:not(:last-child) {
-        border-bottom: 1px #2a335e solid;
-      }
-      span { color: #ee335d; }
-    }
-
-    .goal { 
-      padding: 1em; 
-      margin: 1em 0;
-
-      i {
-        color: #03dcee;
-        margin-right: 0.5em;
-        font-size: 2em;
-      }
-    }
-
-    .goal, .goals, .goal-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .goal-title h4:nth-child(1) {
-      margin: 0 2em 0 0;
-    }
-
-    .goal-title {
-      margin-bottom: column;
-    }
-
-    .goals { flex-direction: column; }
-
-    .sales {
-      display: grid;
-      grid-gap: 2em;
-      margin: 2em 0;
-      grid-column-start: span 3;
-      grid-template-columns: repeat(4, 1fr);
-
-      @media screen and (max-width: 1150px) {
-        grid-column-start: span 2;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      @media screen and (max-width: 750px) {
-        grid-column-start: span 1;
-        grid-template-columns: 1fr; 
-      }
-
-      > div {
-        padding: 1em;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
-        h1 { margin: 0.5em 0; }
-        small { color: #fff; }
-      }
-
-      > div:nth-child(even) {
-        background: linear-gradient(0deg, #b52b4b, #ea335d);
-      }
-
-      > div:nth-child(odd) {
-        background: linear-gradient(0deg, #178add, #03dcee);
-      }
-
-      .text { padding: 1em; }
-      .text-vertical { grid-row-start: span 2; }
-
-      .text-horizontal { 
-        grid-column-start: span 2;
-
-        @media screen and (max-width: 1150px) {
-          grid-column-start: span 1;
-        }
-      }
-    }
-
-    #scientificChart {
-      grid-column-start: span 3;
-      @media screen and (max-width: 1150px) {
-        grid-column-start: span 2;
-      }
-      @media screen and (max-width: 750px) {
-        grid-column-start: span 1;
-      }
-    }
-  }
+  aside.sidebar { @include sidebar; }
+  section.dashboard { @include dashboard; }
+  section.stock-market { @include stocks; }
+  section.transactions { @include transactions; }
 }

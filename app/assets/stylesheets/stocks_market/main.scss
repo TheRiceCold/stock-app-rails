@@ -1,0 +1,80 @@
+@mixin stocks {
+  .search-bar {
+    top: 40px;
+    left: 270px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+
+    input {
+      width: 250px;
+      font-size: 1em;
+      padding: 0.4em;
+      background: none;
+      color: whitesmoke;
+      border-radius: 5px;
+      border: 1px solid #999;
+    }
+  }
+
+  .stock-list {
+    right: 0;
+    top: 60px;
+    padding: 3em;
+    display: grid;
+    grid-gap: 20px;
+    position: absolute;
+    overflow-x: hidden;
+    width: calc(100% - 14em);
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media screen and (max-width: 1050px) {
+      width: calc(100% - 4.1em);
+    }
+
+    article.stock {
+      padding: 1em;
+      height: 18em;
+      display: flex;
+      text-align: center;
+      border-radius: 10px;
+      align-items: center;
+      border: 2px solid #999;
+      flex-direction: column;
+      justify-content: center;
+
+      h2.stock-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+
+      .stock-img {
+        margin-bottom: 0.5em;
+        img { max-height: 100px; }
+      }
+
+      small.stock-quantity {
+        font-size: 1em;
+        color: whitesmoke;
+        margin-bottom: 0.5em;
+      }
+
+      a.stock-btn {
+        width: 8em;
+        padding: 0.5em;
+        color: #1c1c1c;
+        transition: 0.3s;
+        font-weight: bold;
+        border-radius: 5px;
+        background: #00b982;
+
+        &:hover {
+          color: #00b982;
+          background: none;
+          outline: 2px solid #00b982;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+- quantity = transaction.quantity
+- transaction_type = transaction.transaction_type
+
+- company = company_name_by_id transaction.stock_id
+- total_cost = number_to_currency transaction.total_cost
+
+- buy_or_sell = transaction_type == 'buy' ? 'bought' : 'sold'
+- cost_or_earned = transaction_type == 'buy' ? 'cost' : 'earned'
+
+- content = "#{buy_or_sell} #{quantity} stocks from #{company}"
+- amount = "Total #{cost_or_earned}: #{total_cost}"
+
+li.transaction
+  h4 = content
+  br
+  h4 = amount

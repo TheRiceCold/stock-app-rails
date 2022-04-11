@@ -1,0 +1,9 @@
+= render 'shared/sidebar'
+
+section.stock-market
+  .search-bar 
+    span Search:&nbsp;
+    input [placeholder='company name or symbol']
+
+  ul.stock-list
+    = render @stocks

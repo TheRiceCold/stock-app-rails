@@ -31,6 +31,7 @@
       }
       a {
         display: flex;
+        transition: 0.3s;
         align-items: center;
         justify-content: flex-start;
         i {
@@ -41,7 +42,10 @@
             margin: 0;
           }
         }
-        &:hover { i { color: whitesmoke; } }
+        &:hover { 
+          color: #00b982;
+          i { color: #00b982; }
+        }
       }
     }
 
