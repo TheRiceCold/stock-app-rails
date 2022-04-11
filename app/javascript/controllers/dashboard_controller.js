@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import Plotly from 'plotly.js-dist'
 
 // Connects to data-controller="dashboard"
 export default class extends Controller {
