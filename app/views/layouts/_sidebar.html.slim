@@ -1,4 +1,4 @@
-nav.sidebar
+aside.sidebar
   .sidebar-container
     ul
       li = link_to root_path
@@ -21,7 +21,7 @@ nav.sidebar
         i.fas.fa-cog
         span Account Settings
 
-      li = link_to destroy_user_session_path
+      li = link_to destroy_user_session_path, method: :delete
         i.fas.fa-door-open
         span Logout
 

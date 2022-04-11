@@ -1,0 +1,17 @@
+- logo_url = stock.logo_url
+- comp_name = stock.company_name
+- quantity = stock.quantity.to_s(:delimited)
+
+article.stock
+  h2.stock-title 
+    = comp_name
+  
+  .stock-img
+    = image_tag logo_url
+
+  small.stock-quantity
+    strong Quantity:&nbsp;
+    = quantity
+
+  = link_to 'Show', 
+    stock, class: 'stock-btn'
