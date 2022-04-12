@@ -1,0 +1,27 @@
+@mixin modal {
+  .modal-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    position: fixed; 
+    background: rgba(0, 0, 0, 0.3);
+
+    .modal {
+      top: 100px;
+      left: 100px;
+      right: 100px;
+      bottom: 100px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      
+      position: absolute;
+      background: #1c1c1c;
+      border: 2px solid #999;
+      border-radius: 5px;
+    }
+  }
+}

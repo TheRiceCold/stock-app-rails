@@ -1,0 +1,25 @@
+- company_name = @stock.company_name
+- symbol = @stock.symbol
+
+- title = "#{company_name} (#{symbol})"
+
+p [style='color: green']
+  = notice
+
+= turbo_frame_tag :modal do
+  .modal-overlay
+    .modal [data-controller='total-cost']
+      = image_tag @stock.logo_url
+      
+      h3 = title
+
+      h5 [data-total-cost-target="price"]
+        strong Latest Price:
+        = number_to_currency @stock.latest_price
+
+      h5
+        strong Quantity:
+        = @stock.quantity
+
+      = render 'form'
+      button [data-total-cost-target='cancel'] cancel 

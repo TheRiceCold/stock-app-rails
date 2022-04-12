@@ -20,6 +20,12 @@ class Transaction < ApplicationRecord
 
   def total_stock_cost = self.quantity.to_d * stock_price.to_d
 
+  def get_all_investments = get_user.investments
+
+  def get_investment = get_user.investment.find(stock_id: self.stock_id)
+  
+  def investment_exist? = get_all_investments.exist?(stock_id: self.stock_id)
+
   # before_save
   def update_stock_qty
     case self.transaction_type
@@ -41,5 +47,21 @@ class Transaction < ApplicationRecord
 
   def compute_total_cost
     self.total_cost = total_stock_cost
+  end
+
+  def add_to_investments
+    if investment_exist? 
+      case self.transaction_type
+      when transaction_type.buy
+        get_investment.quantity += self.quantity
+      when transaction_type.sell
+        get_investment.quantity -= self.quantity
+      end
+    else
+      get_user.investment.build(
+        quantity: self.quantity,
+        stock_id: self.stock_id
+      )
+    end
   end
 end

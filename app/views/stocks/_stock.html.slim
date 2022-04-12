@@ -1,6 +1,6 @@
 - logo_url = stock.logo_url
 - comp_name = stock.company_name
-- quantity = stock.quantity.to_s(:delimited)
+- quantity = stock.quantity
 
 article.stock
   h2.stock-title 
@@ -13,5 +13,6 @@ article.stock
     strong Quantity:&nbsp;
     = quantity
 
-  = link_to 'Show', 
-    stock, class: 'stock-btn'
+  = link_to 'Show', stock, 
+    class: 'stock-btn', 
+    data: {turbo_frame: 'modal'}
