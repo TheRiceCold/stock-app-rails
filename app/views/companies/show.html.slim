@@ -1,0 +1,37 @@
+- title = "#{@company[:name]} (#{@company[:ticker]})"
+- market_cap = number_to_currency @company.market_cap
+
+p [style='color: green']
+  = notice
+
+= render 'shared/sidebar'
+
+section.dashboard
+  span = image_tag @company[:logo_url]
+  h1.title = title
+
+  .sales
+    div
+      h4 Latest Price
+      h1 = number_to_currency @current_price
+      h5
+        | last price: 
+        = @last_price
+
+    div
+      h4 Stocks
+      h1 = @company[:stocks]
+      h5 
+        | total price: 
+        = number_to_currency @company[:stocks] * @current_price
+
+    div 
+      h4 Employees
+      h1 500
+
+    div 
+      h4 Market Cap
+      h1 = market_cap
+      small 19 last month
+
+  = render 'form'

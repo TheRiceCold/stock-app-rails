@@ -26,25 +26,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "ticker"
+    t.string "name"
+    t.string "logo_url"
+    t.integer "stocks"
+    t.json "prices"
+    t.decimal "market_cap"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "investments", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "stock_id", null: false
+    t.integer "shares"
+    t.bigint "company_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stock_id"], name: "index_investments_on_stock_id"
+    t.index ["company_id"], name: "index_investments_on_company_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
-  end
-
-  create_table "stocks", force: :cascade do |t|
-    t.string "symbol"
-    t.string "logo_url"
-    t.string "company_name"
-    t.decimal "latest_price", precision: 15, scale: 2
-    t.integer "quantity"
-    t.decimal "market_cap", precision: 15, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -52,10 +52,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
     t.integer "quantity", default: 1, null: false
     t.decimal "total_cost", precision: 15, scale: 2, null: false
     t.bigint "user_id", null: false
-    t.bigint "stock_id", null: false
+    t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stock_id"], name: "index_transactions_on_stock_id"
+    t.index ["company_id"], name: "index_transactions_on_company_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -75,8 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "investments", "stocks"
+  add_foreign_key "investments", "companies"
   add_foreign_key "investments", "users"
-  add_foreign_key "transactions", "stocks"
+  add_foreign_key "transactions", "companies"
   add_foreign_key "transactions", "users"
 end

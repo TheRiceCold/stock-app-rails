@@ -1,10 +1,11 @@
 class Investment < ApplicationRecord
   belongs_to :user
-  has_many :stocks
+  has_many :companies
 
-  validates :stock_id, uniqueness: true
+  validates :company_id, uniqueness: true
 
   private
+
   #getters
   def get_stock = Stock.find(self.stock_id)
   def get_user = User.find(self.user_id)
