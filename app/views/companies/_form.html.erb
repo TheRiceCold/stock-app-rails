@@ -1,20 +1,21 @@
 <%= form_with model: @transaction do |f| %>
   <h5>
     <strong>Total Cost:</strong>
-    <input readonly="true" data-total-cost-target="total"/>
+    <input readonly="true" data-company-show-target="total"/>
   </h5>
   <%= f.hidden_field :transaction_type, value: 0 %>
   <h5>
-    <strong>Quantity:</strong>
-    <%= f.number_field :quantity, 
+    <strong>Total Stocks:</strong>
+    <%= f.number_field :stocks, 
       min: 1, max: @company[:stocks],
       data: { 
-        action: "change->total-cost#update", 
-        total_cost_target: "quantity"
+        action: "keyup->company-show#computeTotal", 
+        company_show_target: "stocks"
       } 
     %>
   </h5>
+
   <%= f.hidden_field :stock_id, value: @company[:id] %>
   <%= f.hidden_field :user_id, value: current_user[:id] %>
-  <%= f.submit value: "Buy", class: "btn btn-primary" %>
+  <%= f.submit value: "Buy Stocks" %>
 <% end %>

@@ -7,6 +7,7 @@ export default class extends Controller {
   initialize() {
     const {data: price} = this.priceTarget.lastChild
     this.totalTarget.value = price.trim()
+    console.log(this.totalTarget)
   }
 
   update() {

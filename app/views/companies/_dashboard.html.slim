@@ -1,0 +1,39 @@
+- title = "#{@company[:name]} (#{@company[:ticker]})"
+- market_cap = number_to_currency @company.market_cap
+
+section.dashboard [data-controller='company-show']
+  span 
+    h1.title = title
+    br
+    = image_tag @company[:logo_url]
+
+  .cards
+    div
+      h4 Latest Price
+      h1 [data-company-show-target='price']
+        = number_to_currency @current_price
+      h5
+        | Last Price: 
+        = @last_price
+
+    div
+      h4 Stocks
+      h1 = @company[:stocks]
+      h5 
+        | Total Price: 
+        = number_to_currency @company[:stocks] * @current_price
+
+    div 
+      h4 Last Change
+      h1 = @last_change_percent
+      h5 
+        | Date: 
+        = @last_change_date
+
+    div 
+      h4 Market Cap
+      h1 = market_cap
+
+  #scientificChart
+
+  = render 'form'
