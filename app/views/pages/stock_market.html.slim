@@ -1,0 +1,21 @@
+= render 'shared/sidebar'
+
+section.stock-market
+  .search-bar 
+    span Search:&nbsp;
+    input [placeholder='company name or symbol']
+
+  ul.stock-list
+    - @companies.each do |c|
+      article.stock
+        h2.stock-title 
+          = c.name
+        
+        .stock-img
+          = image_tag c.logo_url
+
+        small.stock-quantity
+          strong Quantity:&nbsp;
+          = c.stocks
+
+        = link_to 'Show', c, class: 'stock-btn'

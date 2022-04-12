@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(
       :transaction_type, :quantity,
-      :total_cost, :user_id, :stock_id
+      :total_cost, :user_id, :company_id
     )
   end
 end

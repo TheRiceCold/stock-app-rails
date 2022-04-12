@@ -50,7 +50,7 @@ class Transaction < ApplicationRecord
   end
 
   def add_to_investments
-    if investment_exist? 
+    if investment_exist?
       case self.transaction_type
       when transaction_type.buy
         get_investment.quantity += self.quantity
