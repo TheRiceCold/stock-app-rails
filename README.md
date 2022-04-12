@@ -31,12 +31,12 @@
   - status (integer(enum))
   - wallet (decimal)
 
-- Stocks
-  - symbol (string)
+- Company
+  - ticker (string)
+  - name (string)
   - logo_url (string)
-  - company_name (string)
-  - latest_price (decimal)
-  - quantity (integer)
+  - stocks (integer)
+  - prices (json)
   - market_cap (decimal)
 
 - Transactions
@@ -72,3 +72,9 @@
 - activeadmin
 - iex-ruby-client
 - dotenv-rails (development)
+
+# Color Scheme
+- #00c8f2 blue
+- #f9004e pink/red
+- #00b982 green
+- #1c1c1c black(bg)
