@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_all_stocks, only: :index
   before_action :set_stock, only: :show
+  before_action :set_all_stocks, only: :index
 
   def index; end
 
@@ -11,6 +11,8 @@ class StocksController < ApplicationController
 
   private
   def set_all_stocks
+    GetStocksJob.perform_later
+
     @stocks = Stock.all
   end
 
