@@ -30,8 +30,9 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '516ceed2a9e91d0bff69d96b00c53ee19cc43d3bbf0eed1869cc29b04e263236bec6fa062d1d1e9e8f020abe1fb5e8e743ae75b2ae4b45c80234803da58bbecc'
 
-  config.parent_controller = "TurboDeviseController"
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+  config.parent_controller = "TurboDeviseController"
   config.warden do |manager|
     manager.failure_app = TurboFailureApp
   end
