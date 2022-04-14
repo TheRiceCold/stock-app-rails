@@ -20,6 +20,7 @@ ActiveAdmin.register User do
           end
         end
         actions
+  
   end
 
   form do |f|
@@ -42,7 +43,7 @@ ActiveAdmin.register User do
   # Uncomment all parameters which should be permitted for assignment
   #
 
-  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved
+  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
   
 #   or
   

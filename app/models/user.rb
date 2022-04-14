@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
 
 
-  has_many :investments, dependent: :destroy
+  # has_many :investments, dependent: :destroy
   has_many :stocks, through: :investments
 
   validates :email, presence: true, uniqueness: true
