@@ -1,0 +1,22 @@
+@mixin button($w, $h, $fs) {
+  display: block;
+  width: $w;
+  height: $h;
+  border: none;
+  outline: none;
+  color: #1c1c1c;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: $fs;
+  font-weight: bold;
+  background: #00b982;
+  border-radius: 10px;
+  background-size: 200%;
+
+  &:hover {
+    background: none;
+    color: whitesmoke;
+    border: 1px solid #00b982;
+  }
+}

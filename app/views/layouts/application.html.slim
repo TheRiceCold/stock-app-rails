@@ -13,10 +13,6 @@ html
     = javascript_importmap_tags
 
   body
-    main.container
-      = notice if notice
-      = alert if alert
-
-      = turbo_frame_tag :modal
-
-      = yield
+    = notice if notice
+    = alert if alert
+    = yield

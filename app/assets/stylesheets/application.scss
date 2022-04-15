@@ -28,16 +28,11 @@
 }
 
 body{
+  color: whitesmoke;
   min-height: 100vh;
   background: #1c1c1c;
   font-family: Poppins, sans-serif;
-}
 
-main.auth-page { @include auth_page; }
-
-main.container {
-  color: whitesmoke;
-  @include modal;
 
   @media screen and (max-width: 400px) {
     font-size: 13px;
@@ -61,6 +56,14 @@ main.container {
 
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-thumb { background: #6b6f8a; }
+}
+
+main.auth-page { 
+  @include auth_page; 
+  @include modal;
+}
+
+main.container {
 
   aside.sidebar { @include sidebar; }
   section.dashboard { @include dashboard; }

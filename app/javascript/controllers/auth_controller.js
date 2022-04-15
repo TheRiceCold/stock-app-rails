@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="auth"
 export default class extends Controller {
-  static targets = ["input"]
+  static targets = ["input", "modal", "close"]
   
   initialize() {
     const inputs = this.inputTargets
@@ -10,6 +10,14 @@ export default class extends Controller {
 
     this.inputAnim(inputs)
     this.togglePwd(pwdInputs)
+  }
+
+  openModal() {
+    this.modalTarget.classList.add('active')
+  }
+
+  closeModal() {
+    this.modalTarget.classList.remove('active')
   }
 
   // Private

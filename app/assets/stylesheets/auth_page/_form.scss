@@ -63,16 +63,17 @@
     .form-field { @include input_field; }
   }
 
-  .auth-links {
+  .auth-link {
     display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.2s;
+    color: whitesmoke;
     text-align: right;
     text-decoration: none;
-    color: whitesmoke;
-    font-size: 1rem;
-    transition: .2s;
     &:hover { color: #00b982; }
   }
 
-  .form-btn { @include form_button; }
+  .form-btn { @include button(100%, 50px, 1.2em); }
   .remember-me { color: whitesmoke; }
 }

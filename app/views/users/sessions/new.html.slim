@@ -1,6 +1,8 @@
 main.auth-page [data-controller='auth']
-  .auth-img 
+  aside.auth-img 
     = image_tag 'signin.svg'
 
-  .form-container 
+  article.form-container 
     = render 'form'
+
+  = render 'modal'
