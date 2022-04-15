@@ -23,7 +23,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   config.action_mailer.raise_delivery_errors = false
   ###
+
+
+
   # Enable server timing
+
   config.server_timing = true
 
   # Enable/disable caching. By default caching is disabled.
