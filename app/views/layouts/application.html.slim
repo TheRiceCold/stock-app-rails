@@ -14,5 +14,9 @@ html
 
   body
     main.container
+      = notice if notice
+      = alert if alert
+
       = turbo_frame_tag :modal
+
       = yield

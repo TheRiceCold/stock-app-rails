@@ -11,6 +11,8 @@ export default class extends Controller {
     this.scientificChartInit()
   }
 
+  // Private
+
   barChartInit() {
     const barChartTrace1 = {
       x: ["Jan", "Feb", "Mar"],

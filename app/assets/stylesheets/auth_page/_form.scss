@@ -1,0 +1,78 @@
+@import 'button';
+@import 'input_field';
+
+@mixin auth_form {
+  width: 360px;
+
+  .form-title {
+    color: whitesmoke;
+    margin: 15px 0;
+    font-size: 2.9rem;
+    text-transform: uppercase;
+  }
+
+  .form-control {
+    display: grid;
+    margin: 25px 0;
+    padding: 5px 0;
+    position: relative;
+    grid-template-columns: 7% 86% 7%;
+    border-bottom: 2px solid whitesmoke;
+
+    &:after, &:before {
+      width: 0;
+      height: 2px;
+      content: '';
+      bottom: -2px;
+      transition: 0.3s;
+      position: absolute;
+      background: #00b982;
+    }
+
+    &:after { right: 50%; }
+    &:before { left: 50%; }
+
+    &.focus {
+      &:after, 
+      &:before { width: 50%; }
+
+      .form-icon i { color: #00b982; }
+
+      .form-field label {
+        top: -5px;
+        font-size: 15px;
+      }
+    }
+
+    .form-icon, .pwd-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i { 
+        color: whitesmoke;
+        transition: 0.3s;
+      }
+    }
+
+    .pwd-icon {
+      cursor: pointer;
+      margin-top: 6px;
+      margin-right: 16px;
+    }
+
+    .form-field { @include input_field; }
+  }
+
+  .auth-links {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1rem;
+    transition: .2s;
+    &:hover { color: #00b982; }
+  }
+
+  .form-btn { @include form_button; }
+  .remember-me { color: whitesmoke; }
+}

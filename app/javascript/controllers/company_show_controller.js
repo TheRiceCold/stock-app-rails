@@ -18,6 +18,8 @@ export default class extends Controller {
     this.totalTarget.value = "$"+total.toFixed(2)
   }
 
+  // Private
+
   scientificChartInit() {
     d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
       (err, rows) => {

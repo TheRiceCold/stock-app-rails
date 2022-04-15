@@ -11,7 +11,6 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    FetchCompaniesJob.set(wait: 1.week).perform_later
     @company = Company.find(params[:id])
   end
 

@@ -1,0 +1,19 @@
+= form_with model: @transaction do |f|
+  h5
+    strong Total Cost:
+    input readonly="true" data-company-show-target="total" /
+
+  = f.hidden_field :transaction_type, value: 0
+
+  h5
+    strong Total Stocks:
+    = f.number_field :stocks, 
+      min: 1, max: @company[:stocks],
+      data: { 
+        action: 'keyup->company-show#computeTotal', 
+        company_show_target: 'stocks'
+      } 
+
+  = f.hidden_field :stock_id, value: @company[:id]
+  = f.hidden_field :user_id, value: current_user[:id]
+  = f.submit value: 'Buy Stocks'
