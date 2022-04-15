@@ -1,0 +1,57 @@
+@import 'form';
+@import 'button';
+
+@mixin modal {
+  .modal-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: fixed; 
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: visibility 0s, opacity 0.3s;
+
+    .modal {
+      width: 40%;
+      height: 40%;
+      display: flex;
+      min-width: 350px;
+      position: relative;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      
+      border-radius: 5px;
+      border: 2px solid #999;
+      background: rgba(28, 28, 28, 0.95);
+
+      form { @include form; }
+
+      button {
+        @include button(100%, 35px, 16px);
+      }
+
+      span.modal-close {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+        position: absolute;
+        &:hover { color: #ea335d; }
+      }
+    }
+  }
+
+  .modal-bg.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

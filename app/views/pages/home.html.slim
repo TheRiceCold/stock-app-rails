@@ -1,139 +1,140 @@
-= render 'layouts/sidebar'
+main.container
+  = render 'layouts/sidebar'
 
-section.dashboard [data-controller='dashboard']
-  h1.title Dashboard
+  section.dashboard [data-controller='dashboard']
+    h1.title Dashboard
 
-  .cards
-    div
-      h4 Wallet
-      h1 $5,000
-      small last deposit: 3 days ago
+    .cards
+      div
+        h4 Wallet
+        h1 $5,000
+        small last deposit: 3 days ago
 
-    div
-      h4 Stocks
-      h1 24
-      small last transaction: yesterday
+      div
+        h4 Stocks
+        h1 24
+        small last transaction: yesterday
 
-    div 
-      h4 Total Shares
-      h1 $519k
-      small 20%
-
-
-    div 
-      h4 Earnings
-      h1 $12k
-      small 19 last month
-
-  ul.panel.list
-    li     
-      h2 Earnings
-      span Monthly
-    li     
-      h4 January
-      span 4,856
-    li     
-      h4 February
-      span 7,093
-    li     
-      h4 March
-      span 3,293
-    li     
-      h4 April
-      span 1,204
-    li     
-      h4 May
-      span 1,543
-
-  ul.panel.list
-    li
-      h2 Deals
-      span Monthly
-    li 
-      h4 January
-      span 23
-    li 
-      h4 February
-      span 15 
-    li
-      h4 March
-      span 42
-    li 
-      h4 April
-      span 11
-    li 
-      h4 April
-      span 11
-
-  ul.panel.list
-    li
-      h2 Deals
-      span Monthly
-    li 
-      h4 January
-      span 23
-    li 
-      h4 February
-      span 15 
-    li
-      h4 March
-      span 42
-    li 
-      h4 April
-      span 11
-    li 
-      h4 April
-      span 11
-
-  #barChart
-
-  .goals
-    .panel.goal
-      i.fas.fa-check-circle
       div 
-        .goal-title
-          h4 Daily
-          h4 450$
-        small Lorem ipsum dolor sit amet
+        h4 Total Shares
+        h1 $519k
+        small 20%
 
-    .panel.goal
-      i.fas.fa-check-circle
-      div
-        .goal-title
-          h4 Monthly
-          h4 2,450$
-        small Lorem ipsum dolor sit amet
 
-    .panel.goal
-      i.fas.fa-check-circle
-      div
-        .goal-title
-          h4 Annual
-          h4 22,450$
-        small Lorem ipsum dolor sit amet
+      div 
+        h4 Earnings
+        h1 $12k
+        small 19 last month
 
-  .goals
-    .panel.goal
-      i.fas.fa-fingerprint
-      div
-        .goal-title
-          h4 Privacy
-        small Lorem ipsum dolor sit amet
+    ul.panel.list
+      li     
+        h2 Earnings
+        span Monthly
+      li     
+        h4 January
+        span 4,856
+      li     
+        h4 February
+        span 7,093
+      li     
+        h4 March
+        span 3,293
+      li     
+        h4 April
+        span 1,204
+      li     
+        h4 May
+        span 1,543
 
-    .panel.goal
-      i.fas.fa-th-large
-      div
-        .goal-title
-          h4 Dashboard
-        small Lorem ipsum dolor sit amet
+    ul.panel.list
+      li
+        h2 Deals
+        span Monthly
+      li 
+        h4 January
+        span 23
+      li 
+        h4 February
+        span 15 
+      li
+        h4 March
+        span 42
+      li 
+        h4 April
+        span 11
+      li 
+        h4 April
+        span 11
 
-    .panel.goal
-      i.fas.fa-user-cog
-      div
-        .goal-title
-          h4 Manage
-        small Lorem ipsum dolor sit amet
-  
-  #pieChart
-  #carpetChart 
-  #donutChart
+    ul.panel.list
+      li
+        h2 Deals
+        span Monthly
+      li 
+        h4 January
+        span 23
+      li 
+        h4 February
+        span 15 
+      li
+        h4 March
+        span 42
+      li 
+        h4 April
+        span 11
+      li 
+        h4 April
+        span 11
+
+    #barChart
+
+    .goals
+      .panel.goal
+        i.fas.fa-check-circle
+        div 
+          .goal-title
+            h4 Daily
+            h4 450$
+          small Lorem ipsum dolor sit amet
+
+      .panel.goal
+        i.fas.fa-check-circle
+        div
+          .goal-title
+            h4 Monthly
+            h4 2,450$
+          small Lorem ipsum dolor sit amet
+
+      .panel.goal
+        i.fas.fa-check-circle
+        div
+          .goal-title
+            h4 Annual
+            h4 22,450$
+          small Lorem ipsum dolor sit amet
+
+    .goals
+      .panel.goal
+        i.fas.fa-fingerprint
+        div
+          .goal-title
+            h4 Privacy
+          small Lorem ipsum dolor sit amet
+
+      .panel.goal
+        i.fas.fa-th-large
+        div
+          .goal-title
+            h4 Dashboard
+          small Lorem ipsum dolor sit amet
+
+      .panel.goal
+        i.fas.fa-user-cog
+        div
+          .goal-title
+            h4 Manage
+          small Lorem ipsum dolor sit amet
+    
+    #pieChart
+    #carpetChart 
+    #donutChart

@@ -1,0 +1,24 @@
+@import 'utils/variables';
+
+@mixin button($w, $h, $fs) {
+  width: $w;
+  height: $h;
+  border: none;
+  outline: none;
+  color: $black;
+  margin: 1rem 0;
+  display: block;
+  font-size: $fs;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+  background: $green;
+  border-radius: 10px;
+  background-size: 200%;
+
+  &:hover {
+    color: $white;
+    background: none;
+    border: 1px solid $green;
+  }
+}

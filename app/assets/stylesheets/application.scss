@@ -14,58 +14,22 @@
 *= require_self
 */
 
-@import 'modal';
-@import 'auth_page/main';
+@import 'auth_page';
+@import 'stock_market';
 @import 'dashboard/main';
-@import 'dashboard/sidebar';
+@import 'utils/defaults';
+@import 'components/modal';
 @import 'transactions/main';
-@import 'stocks_market/main';
+@import 'components/sidebar';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+main.auth-page { 
+  @include auth_page; 
+  @include modal;
 }
-
-body{
-  min-height: 100vh;
-  background: #1c1c1c;
-  font-family: Poppins, sans-serif;
-}
-
-main.auth-page { @include auth_page; }
 
 main.container {
-  color: whitesmoke;
-  @include modal;
-
-  @media screen and (max-width: 400px) {
-    font-size: 13px;
-  }
-
-  h1, h2, h3, h4 { margin: 0; }
-  a {
-    color: whitesmoke;
-    text-decoration: none;
-  }
-  p {
-    color: #6b6f8a;
-    font-size: .9em;
-  }
-  small { color: #6b6f8a; }
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-thumb { background: #6b6f8a; }
-
   aside.sidebar { @include sidebar; }
   section.dashboard { @include dashboard; }
-  section.stock-market { @include stocks; }
-  section.transactions { 
-    @include transactions; 
-  }
+  section.transactions { @include transactions; }
+  section.stock-market { @include stocks_market; }
 }
