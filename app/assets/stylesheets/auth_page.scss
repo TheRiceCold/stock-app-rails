@@ -1,4 +1,4 @@
-@import 'form';
+@import 'components/form';
 
 @mixin auth_page {
   width: 100vw;
@@ -20,7 +20,7 @@
     text-align: center;
     align-items: center;
 
-    form { @include auth_form; }
+    form { @include form; }
   }
 
   @media screen and (max-width: 1050px) { grid-gap: 5rem; }

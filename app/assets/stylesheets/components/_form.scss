@@ -1,11 +1,12 @@
 @import 'button';
 @import 'input_field';
+@import 'utils/variables';
 
-@mixin auth_form {
+@mixin form {
   width: 360px;
 
   .form-title {
-    color: whitesmoke;
+    color: $white;
     margin: 15px 0;
     font-size: 2.9rem;
     text-transform: uppercase;
@@ -16,8 +17,8 @@
     margin: 25px 0;
     padding: 5px 0;
     position: relative;
+    border-bottom: 2px solid $white;
     grid-template-columns: 7% 86% 7%;
-    border-bottom: 2px solid whitesmoke;
 
     &:after, &:before {
       width: 0;
@@ -26,7 +27,7 @@
       bottom: -2px;
       transition: 0.3s;
       position: absolute;
-      background: #00b982;
+      background: $green;
     }
 
     &:after { right: 50%; }
@@ -36,7 +37,7 @@
       &:after, 
       &:before { width: 50%; }
 
-      .form-icon i { color: #00b982; }
+      .form-icon i { color: $green; }
 
       .form-field label {
         top: -5px;
@@ -62,18 +63,5 @@
 
     .form-field { @include input_field; }
   }
-
-  .auth-link {
-    display: block;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.2s;
-    color: whitesmoke;
-    text-align: right;
-    text-decoration: none;
-    &:hover { color: #00b982; }
-  }
-
   .form-btn { @include button(100%, 50px, 1.2em); }
-  .remember-me { color: whitesmoke; }
 }

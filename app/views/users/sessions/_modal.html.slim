@@ -2,23 +2,17 @@ section.modal-bg [data-auth-target='modal']
   article.modal
     h2 Reset Password
 
-    = form_for(resource, 
-      as: resource_name, 
-      url: password_path(resource_name), 
-      html: { method: :post }) do |f| 
-
-      = render 'users/shared/error_messages', 
-        resource: resource
-
+    form [data-auth-target='resetEmailForm']
       .form-control
-        = f.label :email
-        br 
-        = f.email_field :email,
-          autofocus: true, 
-          autocomplete: "email",
-          class: "form-control"
-      
-      = f.submit 'Send'
+        .form-icon
+          i.fas.fa-envelope
+
+        .form-field
+          label Email
+          input#email [type='email' data-auth-target='input']
+    
+      button [data-action='click->auth#resetPassword'] 
+        | Send
 
     span.modal-close [data-action='click->auth#closeModal'] 
       i.fas.fa-times

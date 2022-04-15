@@ -1,0 +1,44 @@
+@import 'variables';
+
+*, *::before, *::after {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  color: $white;
+  min-height: 100vh;
+  background: $black;
+  font-family: $font;
+}
+
+@media screen and (max-width: 400px) {
+  font-size: 13px;
+}
+
+h1, h2, h3, h4 { margin: 0; }
+
+a {
+  color: $white;
+  display: block;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+  text-align: right;
+  text-decoration: none;
+  &:hover { color: $green; }
+}
+
+p {
+  font-size: .9em;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #6b6f8a; }
