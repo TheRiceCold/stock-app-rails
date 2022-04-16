@@ -3,6 +3,7 @@
   url: session_path(resource_name)) do |f| 
 
   h1.form-title Welcome
+
   = render 'input', f: f, type: 'email'
   = render 'input', f: f, type: 'password'
 
@@ -10,10 +11,13 @@
     = f.check_box :remember_me
     = f.label :remember_me, class: 'remember-me'
 
-  = f.submit 'Login', class: 'form-btn'
+  = f.submit 'Login', 
+    class: 'form-btn',
+    data: { auth_target: 'btnSubmit' }
 
-  a.auth-link [data-action='click->auth#openModal']
-    | Forgot your password
+  = link_to 'Forgot your password', 
+    new_password_path(resource_name),
+    data: {turbo_frame: 'reset_pwd_modal'}
   br
 
   = link_to 'Sign up', new_registration_path(resource_name)

@@ -4,7 +4,7 @@ main.container
   section.stock-market
     .search-bar 
       span Search:&nbsp;
-      input [placeholder='company name or symbol']
+      input(placeholder='company name or symbol')
 
     ul.stock-list
       - @companies.each do |c|

@@ -1,5 +1,9 @@
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| 
+= form_for(resource, 
+  as: resource_name, 
+  url: registration_path(resource_name)) do |form| 
+
   = render 'users/shared/error_messages', resource: resource
+
   h1.form-title Register
 
   = render 'input',
@@ -27,6 +31,8 @@
     type: 'password',
     input: :password_confirmation
 
-  = form.submit 'Sign up', class: 'form-btn'
+  = form.submit 'Sign up', 
+    class: 'form-btn',
+    data: { auth_target: 'btnSubmit' }
 
   = link_to 'Log in', new_session_path(resource_name)

@@ -1,5 +1,6 @@
 @import 'form';
 @import 'button';
+@import 'utils/variables';
 
 @mixin modal {
   .modal-bg {
@@ -21,7 +22,7 @@
 
     .modal {
       width: 40%;
-      height: 40%;
+      height: 45%;
       display: flex;
       min-width: 350px;
       position: relative;
@@ -30,13 +31,12 @@
       justify-content: center;
       
       border-radius: 5px;
-      border: 2px solid #999;
+      border: 2px solid $grey;
       background: rgba(28, 28, 28, 0.95);
 
       form { @include form; }
-
-      button {
-        @include button(100%, 35px, 16px);
+      input[type='submit'] { 
+        @include button(100%, 35px, 16px); 
       }
 
       span.modal-close {
@@ -45,12 +45,12 @@
         cursor: pointer;
         transition: 0.2s;
         position: absolute;
-        &:hover { color: #ea335d; }
+        &:hover { color: $red; }
       }
     }
   }
 
-  .modal-bg.active {
+  .modal-bg.show {
     opacity: 1;
     visibility: visible;
   }

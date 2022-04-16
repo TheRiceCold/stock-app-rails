@@ -1,7 +1,7 @@
 - title = "#{@company[:name]} (#{@company[:ticker]})"
 - market_cap = number_to_currency @company.market_cap
 
-section.dashboard [data-controller='company-show']
+section.dashboard(data-controller='company-show')
   span 
     h1.title = title
     br
@@ -10,7 +10,7 @@ section.dashboard [data-controller='company-show']
   .cards
     div
       h4 Latest Price
-      h1 [data-company-show-target='price']
+      h1(data-company-show-target='price')
         = number_to_currency @current_price
       h5
         | Last Price: 

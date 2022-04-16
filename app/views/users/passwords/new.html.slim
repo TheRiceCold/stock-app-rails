@@ -1,17 +1,28 @@
-= form_for(resource, 
-  as: resource_name, 
-  url: password_path(resource_name), 
-  html: { method: :post }) do |f| 
+= turbo_frame_tag :reset_pwd_modal do
+  section.modal-bg(data-controller='modal')
+    article.modal
+      h2 Reset Password
 
-  = render 'users/shared/error_messages', 
-    resource: resource
+      = form_for(resource, 
+        as: resource_name, 
+        url: password_path(resource_name), 
+        html: { method: :post }) do |f| 
 
-  .form-control
-    = f.label :email
-    br 
-    = f.email_field :email,
-      autofocus: true, 
-      autocomplete: "email",
-      class: "form-control"
-  
-  = f.submit 'Send me reset password instructions'
+        = render 'users/shared/error_messages', 
+          resource: resource
+
+        .form-control
+          .form-icon
+            i.fas.fa-envelope
+
+          .form-field
+            = f.label :email
+            = f.email_field :email,
+              autofocus: true, 
+              autocomplete: 'email',
+              data: { modal_target: 'input' }
+        
+        = f.submit 'Send'
+
+      span.modal-close(data-action='click->modal#closeModal')
+        i.fas.fa-times

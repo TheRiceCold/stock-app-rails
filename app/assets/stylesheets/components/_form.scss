@@ -59,6 +59,8 @@
       cursor: pointer;
       margin-top: 6px;
       margin-right: 16px;
+      i { display: none; }
+      i.show { display: initial; }
     }
 
     .form-field { @include input_field; }

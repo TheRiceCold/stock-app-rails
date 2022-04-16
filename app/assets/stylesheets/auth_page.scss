@@ -23,6 +23,13 @@
     form { @include form; }
   }
 
+
+  #error_explanation {
+    text-align: center;
+    margin-top: 16px;
+    color: $red;
+  }
+
   @media screen and (max-width: 1050px) { grid-gap: 5rem; }
   @media screen and (max-width: 1000px) {
     auth-img img { width: 400px; }
