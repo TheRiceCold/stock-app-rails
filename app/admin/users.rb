@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
 
   filter :email
   filter :approved
@@ -26,14 +27,23 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
-      f.input :password
-      f.input :password_confirmation
       f.input :firstname
       f.input :lastname
-  
     end
     f.actions
   end
+
+
+  show do
+    attributes_table do
+      row :email
+      row :firstname
+      row :lastname
+      row :approved?
+      row :wallet
+    end
+  end
+
 
 
 
@@ -43,7 +53,6 @@ ActiveAdmin.register User do
   # Uncomment all parameters which should be permitted for assignment
   #
 
-  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
   
 #   or
   
