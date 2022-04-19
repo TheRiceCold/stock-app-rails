@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :transactions, dependent: :destroy
+  
+  after_create :send_admin_mail
 
   validates :email, uniqueness: true
   validates_presence_of :email, :firstname, :lastname, :wallet
@@ -35,4 +37,8 @@ class User < ApplicationRecord
     approved? ? super : :not_approved
   end
 
+
+  def send_admin_mail
+    AdminMailer.new_user_waiting_for_approval(email).deliver
+  end
 end

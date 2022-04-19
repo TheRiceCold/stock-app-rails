@@ -1,9 +1,35 @@
 ActiveAdmin.register User do
   permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
 
+  before_action :remove_password_params_if_blank, only: [:update]
+  controller do
+
+    def remove_password_params_if_blank
+      if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+    end
+  end
   filter :email
   filter :approved
 
+  form do |f|
+    f.inputs do
+        if f.object.new_record?
+            f.input :email
+            f.input :firstname
+            f.input :lastname
+            f.input :password
+            f.input :password_confirmation
+        else
+            f.input :email
+            f.input :firstname
+            f.input :lastname
+        end
+    end
+    f.submit
+  end 
  index do
         selectable_column
         id_column
@@ -24,16 +50,7 @@ ActiveAdmin.register User do
   
   end
 
-  form do |f|
-    f.inputs do
-      f.input :email
-      f.input :firstname
-      f.input :lastname
-      f.input :password
-      f.input :password_confirmation
-    end
-    f.actions
-  end
+
 
 
   show do
@@ -45,6 +62,7 @@ ActiveAdmin.register User do
       row :wallet
     end
   end
+
 
 
 

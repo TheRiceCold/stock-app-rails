@@ -13,8 +13,8 @@ RSpec.describe AdminUser, type: :model do
   end
 
   it "is not unique email" do
-    first_email = AdminUser.create(email: "quevon@gmail.com", password: '123456')
-    second_email =  AdminUser.create(email: "quevon@gmail.com", password: '123456')
+    first_email = AdminUser.create(email: "admin@gmail.com", password: '123456')
+    second_email =  AdminUser.create(email: "admin@gmail.com", password: '123456')
   
     expect(second_email).to_not be_valid
     expect(second_email.errors).to be_present
