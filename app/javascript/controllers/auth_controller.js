@@ -9,8 +9,22 @@ export default class extends Controller {
     const inputs = this.inputTargets
     const pwdInputs = inputs.filter(i => i.type === "password")
 
-    inputAnim(inputs)
+    this.inputAnim(inputs)
     this.passwordInput(pwdInputs)
+  }
+
+  inputAnim(inputs) {
+    inputs.forEach(input => {
+      const parent = input.parentNode.parentNode 
+
+      input.onfocus = () =>
+        parent.classList.add("focus")
+
+      input.onblur = () => {
+        if (!input.value) 
+        parent.classList.remove("focus")
+      }
+    })
   }
 
   // Private

@@ -9,9 +9,10 @@ module TransactionsHelper
 
   def transaction_content(transaction)
     stocks = transaction.stocks
+    price = transaction.price
     transaction_type = transaction.transaction_type
     company = find_company_by_id transaction.company_id
-    total_cost = number_to_currency transaction.total_cost
+    total_cost = number_to_currency(price * stocks)
 
     buy_or_sell = transaction_type == 'buy' ? 'Bought' : 'Sold'
     stocks_content = stocks.to_s + " #{stocks > 1 ? 'stocks' : 'stock'}"

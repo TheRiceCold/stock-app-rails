@@ -1,11 +1,9 @@
-section.modal-bg(data-controller='modal')
-  article.modal(data-controller='compute-total')
-    h2 = @company.name
+= turbo_frame_tag :modal do
+  section.modal-bg(data-controller='modal')
+    article.modal(data-controller='compute-total')
+      h2 = @company.name
 
-    span.modal-close(data-action='click->modal#hide')
-      i.fas.fa-times
+      span.modal-close(data-action='click->modal#hide')
+        i.fas.fa-times
 
-    = render 'form', 
-      company: @company, 
-      transaction: @transaction,
-      price: @stock_price
+      = render 'form'

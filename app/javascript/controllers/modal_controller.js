@@ -19,6 +19,14 @@ export default class extends Controller {
   }
 
   // Private
+  // closeModalBg = () => {
+  //   this.element.onclick = e => {
+  //     e.stopPropagation()
+  //     e.target.classList.remove("show")
+  //     this.removeModal(e.target)
+  //   }
+  // }
+
   show = () => setTimeout(
     () => this.element.classList.add("show"), 100)
     
