@@ -1,0 +1,9 @@
+= form_for(resource, as: resource_name, 
+  url: registration_path(resource_name)) do |f| 
+
+  = render 'errors', resource: resource
+  h1.form-title Register
+  = render 'inputs', f:f
+
+  = f.submit 'Sign up', class: 'form-btn',
+    'data-auth-target': 'btnSubmit'

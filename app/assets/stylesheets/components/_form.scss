@@ -1,0 +1,69 @@
+@import 'button';
+@import 'input_field';
+@import 'utils/variables';
+
+@mixin form {
+  width: 100%;
+
+  .form-title {
+    color: $white;
+    margin: 15px 0;
+    font-size: 2.9rem;
+    text-transform: uppercase;
+  }
+
+  .form-control {
+    display: grid;
+    margin: 25px 0;
+    padding: 5px 0;
+    position: relative;
+    border-bottom: 2px solid $white;
+    grid-template-columns: 7% 86% 7%;
+
+    &:after, &:before {
+      width: 0;
+      height: 2px;
+      content: '';
+      bottom: -2px;
+      transition: 0.3s;
+      position: absolute;
+      background: $green;
+    }
+
+    &:after { right: 50%; }
+    &:before { left: 50%; }
+
+    &.focus {
+      &:after, 
+      &:before { width: 50%; }
+
+      .form-icon i { color: $green; }
+
+      .form-field label {
+        top: -5px;
+        font-size: 15px;
+      }
+    }
+
+    .form-icon, .pwd-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i { 
+        color: whitesmoke;
+        transition: 0.3s;
+      }
+    }
+
+    .pwd-icon {
+      cursor: pointer;
+      margin-top: 6px;
+      margin-right: 16px;
+      i { display: none; }
+      i.show { display: initial; }
+    }
+
+    .form-field { @include input_field; }
+  }
+  .form-btn { @include button(100%, 50px, 1.2em); }
+}

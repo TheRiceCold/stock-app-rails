@@ -1,0 +1,9 @@
+= turbo_frame_tag :modal do
+  section.modal-bg(data-controller='modal')
+    article.modal
+      h2 Resend Confirmation
+
+      span.modal-close(data-action='click->modal#hide')
+        i.fas.fa-times
+
+      = render 'form', resource: resource

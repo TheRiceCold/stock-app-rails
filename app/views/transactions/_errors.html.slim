@@ -1,0 +1,4 @@
+- if transaction.errors.any?
+    ul#error_explanation
+      - transaction.errors.each do |error|
+        li = error.full_message

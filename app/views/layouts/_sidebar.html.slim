@@ -1,0 +1,38 @@
+aside.sidebar
+  .sidebar-container
+    ul
+      li = link_to root_path
+        i.fas.fa-home
+        span Home
+
+      li = link_to portfolio_path
+        i.fas.fa-folder
+        span Portfolio
+
+      li = link_to transactions_path
+        i.fas.fa-history
+        span Transaction History
+
+      li = link_to stock_market_path
+        i.fas.fa-search-dollar
+        span Stock Market
+
+      / TODO:
+      li = link_to root_path
+        i.fas.fa-coins
+        span Add Balance
+
+      li = link_to edit_user_registration_path
+        i.fas.fa-cog
+        span Account Settings
+
+      li = link_to destroy_user_session_path, 
+      'data-turbo-method': 'delete'
+        i.fas.fa-door-open
+        span Logout
+
+    .sidebar-footer
+      h4 My Wallet
+      p = number_to_currency @balance
+      br
+      p &copy; Batch 15 Stock App

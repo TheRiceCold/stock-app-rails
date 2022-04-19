@@ -4,17 +4,19 @@
 
 ## User Stories
 
-- As a Trader, I want to create an account to buy and sell stocks.
-- As a Trader, I want to log in my credentials so that I can access my account on the app.
-- As a Trader, I want to buy a stock to add to my investment(Trader signup should be approved).
-- As a Trader, I want to have a My Portfolio page to see all my stocks.
-- As a Trader, I want to have a Transaction page to see and monitor all the  transactions made by buying and selling stocks.
-- As a Trader, I want to sell my stocks to gain money.
-- As an Admin, I want to create a new trader to manually add them to the app.
-- As an Admin, I want to edit a specific trader to update his/her details.
-- As an Admin, I want to view a specific trader to show his/her details.
-- As an Admin, I want to see all the trader that registered in the app so I can track all the traders.
-- As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the app.
+- Trader 
+  - Able to create an account to buy and sell stocks.
+  - Able to log in credentials to access his/her account
+  - Able to buy stocks to add investment(account should be approved).
+  - Able to see all his/her stocks in My Portfolio page.
+  - Able to monitor all transactions(buy/sell) in the Transaction page.
+  - Able to sell his/her stocks to gain money.
+- Admin
+  - Able to create a new trader(user) manually.
+  - Able to edit a specific trader to update his/her details.
+  - Able to view a specific trader to show his/her details.
+  - Able to track all the registered traders.
+  - Able to monitor all transactions to see the transaction flow of the app.
 
 ## Schema
 
@@ -29,22 +31,23 @@
   - status (integer(enum))
   - wallet (decimal)
 
-- Stocks
-  - symbol(string)
-  - logo_url(string)
-  - company_name(string)
-  - latest_price(decimal)
-  - quantity(integer)
-  - market_cap(decimal)
-
-- Investments
-  - user_id(reference)
-  - stock_id(reference)
+- Company
+  - ticker (string)
+  - name (string)
+  - logo_url (string)
+  - stocks (integer)
+  - prices (json)
+  - market_cap (decimal)
 
 - Transactions
-  - type (integer(enum))
+  - transaction_type (integer(enum))
   - quantity (integer)
-  - price (decimal)
+  - total_cost (decimal)
+  - user_id (reference)
+  - stock_id (reference)
+
+- Investments
+  - quantity (integer)
   - user_id (reference)
   - stock_id (reference)
 
@@ -64,6 +67,14 @@
 - Heroku CLI v7.59.4
 
 ## Gems 
-- pg
 - devise
-- cancancan
+- ransack
+- activeadmin
+- iex-ruby-client
+- dotenv-rails (development)
+
+# Color Scheme
+- #00c8f2 blue
+- #f9004e pink/red
+- #00b982 green
+- #1c1c1c black(bg)

@@ -51,8 +51,6 @@ ActiveAdmin.register User do
   end
 
 
-
-
   show do
     attributes_table do
       row :email

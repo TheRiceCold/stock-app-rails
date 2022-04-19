@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  - err_messages = resource.errors.full_messages
+
+  ul#error_explanation(data-controller='toast')
+    - err_messages.each do |message|
+      li.toast(data-toast-target='item') = message

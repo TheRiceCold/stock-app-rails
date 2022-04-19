@@ -10,12 +10,22 @@
 * files in this directory. Styles in this file should be added after the last require_* statement.
 * It is generally better to create a new file per style scope.
 *
-*= require_tree .
 *= require_self
 */
 
-body{
-  margin: 0;
-  padding: 0;
-  // background: #222d32;
+@import 'auth_page';
+@import 'stock_market';
+@import 'dashboard/main';
+@import 'utils/defaults';
+@import 'utils/variables';
+@import 'components/modal';
+@import 'transactions/main';
+@import 'components/sidebar';
+
+main.auth-page { @include auth_page; }
+main.container {
+  aside.sidebar { @include sidebar; }
+  section.company { @include dashboard; }
+  section.transactions { @include transactions; }
+  section.stock-market { @include stocks_market; }
 }

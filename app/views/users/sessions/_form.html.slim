@@ -1,0 +1,14 @@
+- input = 'users/shared/input'
+
+= form_with(model: resource, 
+  as: resource_name, 
+  url: session_path(resource_name),
+  data: { turbo: false }) do |f| 
+
+  h1.form-title Welcome
+
+  = render input, f:f, type: 'email', input: :email
+  = render input, f:f, type: 'password', input: :password
+
+  = f.submit 'Login', class: 'form-btn',
+    'data-auth-target': 'btnSubmit'
