@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :transactions, dependent: :destroy
-  
+
   after_create :send_admin_mail
 
   validates :email, uniqueness: true
@@ -40,5 +40,17 @@ class User < ApplicationRecord
 
   def send_admin_mail
     AdminMailer.new_user_waiting_for_approval(email).deliver
+  end
+
+  def self.send_reset_password_instructions(attributes={})
+    recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+    if recoverable.persisted?
+      if recoverable.approved?
+        recoverable.send_reset_password_instructions
+      else
+        recoverable.errors.add(:base, :not_approved)
+      end
+    end
+    recoverable
   end
 end
