@@ -1,6 +1,6 @@
 class Investment < ApplicationRecord
   belongs_to :user
-  has_many :companies
+  belongs_to :company
 
   validates :company_id, uniqueness: true
 

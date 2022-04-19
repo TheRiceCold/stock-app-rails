@@ -1,0 +1,17 @@
+- price = number_to_currency company.prices.last.values[1]
+
+article.stock
+  = link_to("/companies/#{company.id}") do
+    h2.stock-title 
+      = company.name
+
+    .stock-img
+      = image_tag company.logo_url
+
+    small
+      strong Price:&nbsp;
+      = price
+
+  = link_to 'Buy Stocks', 
+    company_transactions_buy_path(company),
+    class: 'buy-btn', 'data-turbo-frame': 'modal'
