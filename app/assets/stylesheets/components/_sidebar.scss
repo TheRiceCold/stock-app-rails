@@ -52,7 +52,9 @@
     }
 
     .sidebar-footer {
-      margin: 18em 0;
+      bottom: 1em;
+      position: fixed;
+      text-align: center;
       p { color: $white; }
       @media screen and (max-width: 1050px) {
         display: none;

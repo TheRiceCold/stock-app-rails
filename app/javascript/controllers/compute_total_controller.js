@@ -5,8 +5,11 @@ export default class extends Controller {
   static targets = ["total", "stocks", "submit"]
 
   connect() { 
-    // this.submitTarget.disabled = true
+    this.stocksTarget.value = ''
+    this.submitTarget.disabled = true
     this.price = this.totalTarget.dataset.value.toLocaleString('en-US')
+    this.totalQty = Number(this.stocksTarget.dataset.value)
+
     this.totalTarget.innerText = "Total Cost: $" + this.price
   }
 
@@ -14,8 +17,12 @@ export default class extends Controller {
     const qty = this.stocksTarget.value.trim()
 
     if (qty < 1 || !qty) {
-      // this.submitTarget.disabled = true
+      this.submitTarget.disabled = true
       this.totalTarget.innerText = "Total Cost: $"+this.price
+    }
+    else if (qty > this.totalQty){
+      this.submitTarget.disabled = true
+      this.totalTarget.innerText = "Quantity Limit: " + this.totalQty
     }
     else {
       this.submitTarget.disabled = false

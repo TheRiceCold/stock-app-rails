@@ -14,8 +14,8 @@
       = f.number_field :stocks, 
         data: { action: 'keyup->compute-total#update',
           compute_total_target: 'stocks',
-          modal_target: 'input' }
-
+          modal_target: 'input',
+          value: company.stocks }
 
   = f.submit 'Buy', 
     data: { compute_total_target: 'submit' }

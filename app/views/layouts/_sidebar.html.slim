@@ -19,8 +19,8 @@ aside.sidebar
 
       / TODO:
       li = link_to root_path
-        i.far.fa-credit-card
-        span Add Wallet
+        i.fas.fa-coins
+        span Add Balance
 
       li = link_to edit_user_registration_path
         i.fas.fa-cog
@@ -32,4 +32,7 @@ aside.sidebar
         span Logout
 
     .sidebar-footer
+      h4 My Wallet
+      p = number_to_currency @balance
+      br
       p &copy; Batch 15 Stock App

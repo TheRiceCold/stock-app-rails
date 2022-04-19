@@ -5,12 +5,13 @@ class Transaction < ApplicationRecord
 
   # default_scope { order(created_at: :desc) }
 
-  validates_presence_of :transaction_type, :stocks, :total_cost
+  validates_presence_of :transaction_type, :stocks
   validates :stocks, numericality: { greater_than: 0 }
   validate :sufficient_balance
 
   before_save :save_total_cost
   after_create :update_wallet
+  after_create :add_to_investments
 
   private
 
@@ -21,22 +22,22 @@ class Transaction < ApplicationRecord
   def shares = self.stocks * 100 / get_company.stocks
 
   # investments
-  def investment_exist? = user.investments.exist?(company_id: self.company_id)
+  def investment_exist? = user.investments.exists?(company_id: self.company_id)
   def get_investment = user.investments.find(company_id: self.company_id)
 
   # validations
   def sufficient_balance
-    if transaction_type == 'buy' and user.wallet < total_cost
+    if transaction_type == 'buy' and user.wallet.to_d < total_cost.to_d
       errors.add(:stocks, 'insufficient balance')
     end
   end
 
-  # before create
+  # before save
   def save_total_cost
     self.total_cost = total_stocks_cost
   end
 
-  #after create
+  # after create
   def update_wallet
     case transaction_type
     when 'buy'
@@ -56,9 +57,9 @@ class Transaction < ApplicationRecord
         get_investment.quantity -= self.quantity
       end
     else
-      get_user.investment.build(
-        quantity: self.quantity,
-        stock_id: self.stock_id
+      user.investments.build(
+        stocks: self.stocks,
+        company_id: self.company_id
       )
     end
   end
