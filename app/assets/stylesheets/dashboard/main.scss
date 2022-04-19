@@ -1,16 +1,35 @@
 @mixin dashboard {
   right: 0;
-  padding: 2em;
-  display: grid;
-  grid-gap: 2em;
+  padding: 3em;
   position: absolute;
   overflow-x: hidden;
-  justify-content: center;
   width: calc(100% - 14em);
-  grid-template-columns: 1fr 1fr 1fr;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+
+    a.buy-btn {
+      width: 8em;
+      padding: 0.5em;
+      color: #1c1c1c;
+      transition: 0.3s;
+      font-weight: bold;
+      border-radius: 5px;
+      background: $green;
+      text-align: center;
+
+      &:hover {
+        color: $green;
+        background: none;
+        outline: 2px solid $green;
+      }
+    }
+  }
 
   @media screen and (max-width: 1050px) {
-    .title { display: none; }
     width: calc(100% - 4.1em);
   }
 
@@ -70,7 +89,6 @@
   .cards {
     display: grid;
     grid-gap: 2em;
-    margin: 2em 0;
     grid-column-start: span 3;
     grid-template-columns: repeat(4, 1fr);
 

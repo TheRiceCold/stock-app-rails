@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="auth"
 export default class extends Controller {
-  static targets = ["input", "btnSubmit"]
+  static targets = ["input", "pwdIcon", "btnSubmit"]
   
   initialize() {
     const inputs = this.inputTargets
@@ -15,8 +15,10 @@ export default class extends Controller {
 
   // Private
   passwordInput(inputs) {
-    inputs.forEach(input => {
-      const icon = input.parentNode.nextSibling.firstChild
+    const pwdIcons = this.pwdIconTargets
+
+    inputs.forEach((input, i) => {
+      const icon = pwdIcons[i]
 
       input.onkeyup = () => {
         if (input.value.trim())

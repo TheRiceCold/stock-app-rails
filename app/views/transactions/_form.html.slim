@@ -1,0 +1,21 @@
+= form_with(model: [company, transaction],
+  data: { turbo: false }) do |f|
+  = render 'errors', transaction: transaction
+  h3(data-compute-total-target='total' data-value=price)
+
+  = f.hidden_field :company_id, value: company.id
+
+  .form-control
+    .form-icon
+      i.fas.fa-chart-pie
+
+    .form-field
+      = f.label 'Quantity'
+      = f.number_field :stocks, 
+        data: { action: 'keyup->compute-total#update',
+          compute_total_target: 'stocks',
+          modal_target: 'input' }
+
+
+  = f.submit 'Buy', 
+    data: { compute_total_target: 'submit' }

@@ -1,21 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
-import Plotly from 'plotly.js-dist'
+import Plotly from "plotly.js-dist"
 
 // Connects to data-controller="company-show"
 export default class extends Controller {
-  static targets = ["total", "price", "stocks"]
-
-  initialize() { 
+  connect() {
     this.scientificChartInit()
-    const {data: price} = this.priceTarget.lastChild
-    this.totalTarget.value = price.trim()
+    this.fetchPrices().then(data => console.log(data))
   }
 
-  computeTotal() {
-    const {data: price} = this.priceTarget.lastChild
-    const qty = this.stocksTarget.value
-    const total = price.replace("$", "") * qty
-    this.totalTarget.value = "$"+total.toFixed(2)
+  async fetchPrices() {
+    const companyId = this.element.dataset.value
+    const res = await fetch(`${companyId}/prices`)
+    const prices = await res.json()
+    return prices
   }
 
   // Private

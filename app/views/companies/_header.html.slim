@@ -1,0 +1,7 @@
+- title = "#{company.name} (#{company.ticker})"
+
+header
+  h1.title = title
+  = link_to 'Buy Stocks', 
+    new_company_transaction_path(company), 
+    class: 'buy-btn', 'data-turbo-frame': 'modal'

@@ -34,13 +34,26 @@
       border: 2px solid $grey;
       background: rgba(28, 28, 28, 0.95);
 
-      form { @include form; }
+      #error_explanation {
+        color: $red;
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      form { 
+        @include form; 
+        width: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .form-control { width: 100%; }
+      }
       input[type='submit'] { 
-        @include button(100%, 35px, 16px); 
+        @include button(50%, 35px, 16px); 
       }
 
       span.modal-close {
-        top: 10px;
+        top: 8px;
         right: 10px;
         cursor: pointer;
         transition: 0.2s;

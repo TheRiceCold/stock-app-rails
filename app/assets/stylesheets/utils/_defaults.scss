@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 @import 'variables';
+@import 'components/modal';
 
 *, *::before, *::after {
   border: 0;
@@ -12,6 +14,8 @@ body{
   min-height: 100vh;
   background: $black;
   font-family: $font;
+
+  @include modal;
 }
 
 @media screen and (max-width: 400px) {
@@ -25,15 +29,11 @@ a {
   display: block;
   cursor: pointer;
   font-size: 1rem;
-  transition: 0.2s;
   text-align: right;
   text-decoration: none;
-  &:hover { color: $green; }
 }
 
-p {
-  font-size: .9em;
-}
+p { font-size: .9em; }
 ul {
   margin: 0;
   padding: 0;
@@ -42,3 +42,37 @@ ul {
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-thumb { background: #6b6f8a; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.notice, .alert {
+  padding: 1em 0;
+  font-size: 1em;
+  text-align: center;
+}
+
+.notice, .alert {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  position: fixed;
+  i {
+    right: 2em;
+    top: 1.25em;
+    cursor: pointer;
+    position: absolute;
+    transition: color 0.2s ease;
+  }
+  i:hover { color: $black; }
+}
+.alert { background: $red; }
+.notice { background: $green; }

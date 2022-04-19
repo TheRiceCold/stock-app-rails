@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   }
 
   resources :companies, only: :show do
-    post "transactions", to: "transaction#create"
+    get 'prices', to: 'companies#prices'
+
+    resources :transactions, only: [:new, :create]
   end
 
   resources :transactions, only: :index
 
-  get "portfolio", to: "investments#index", as: "portfolio"
-  get "stock_market", to: "pages#stock_market", as: "stock_market"
+  # get 'add_wallet', to: 'wallet#add', as: 'add_wallet'
+  get 'portfolio', to: 'investments#index', as: 'portfolio'
+  get 'stock_market', to: 'pages#stock_market', as: 'stock_market'
 
-  root "pages#home"
+  root 'pages#home'
 end

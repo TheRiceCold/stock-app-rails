@@ -1,9 +1,9 @@
-= render 'shared/sidebar'
+main.container
+  = render 'layouts/sidebar'
+  section.transactions
+    .search-bar 
+      span Search:&nbsp;
+      input [placeholder='company name or symbol']
 
-section.transactions
-  .search-bar 
-    span Search:&nbsp;
-    input [placeholder='company name or symbol']
-
-  ul.transaction-list
-    = render @transactions
+    ul.transaction-list
+      = render @transactions

@@ -17,11 +17,17 @@ aside.sidebar
         i.fas.fa-search-dollar
         span Stock Market
 
+      / TODO:
+      li = link_to root_path
+        i.far.fa-credit-card
+        span Add Wallet
+
       li = link_to edit_user_registration_path
         i.fas.fa-cog
         span Account Settings
 
-      li = link_to destroy_user_session_path, method: :delete
+      li = link_to destroy_user_session_path, 
+      'data-turbo-method': 'delete'
         i.fas.fa-door-open
         span Logout
 

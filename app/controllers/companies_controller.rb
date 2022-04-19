@@ -1,17 +1,20 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_company
-  before_action :set_current_last_price
-  before_action :set_last_change
+  before_action :set_company, only: :show
+  before_action :set_prices, only: :prices
+  before_action :set_last_change, only: :show
+  before_action :set_current_last_price, only: :show
 
-  def show
-    @transaction = current_user.transactions.build
+  def show; end
+
+  def prices
+    render json: @prices
   end
 
   private
 
-  def set_company
-    @company = Company.find(params[:id])
+  def set_prices
+    @prices = Company.find(params[:company_id]).prices
   end
 
   def set_current_last_price
@@ -22,5 +25,9 @@ class CompaniesController < ApplicationController
   def set_last_change
     @last_change_date = @company.prices.last.values[23]
     @last_change_percent = @company.prices.last.values[20]
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 end

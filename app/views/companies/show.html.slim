@@ -1,2 +1,11 @@
-= render 'layouts/sidebar'
-= render 'dashboard'
+section.company(data-controller='company-show' data-value=@company.id)
+  = turbo_frame_tag :buy_stocks_modal
+  = render 'header', company: @company
+  = render 'cards', 
+    company: @company,
+    price: @current_price,
+    last_price: @last_price,
+    last_change: @last_change_percent,
+    last_change_date: @last_change_date
+
+  #scientificChart

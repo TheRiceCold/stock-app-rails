@@ -18,6 +18,15 @@ module StockAppRails
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    ActionMailer::Base.smtp_settings = {
+      user_name:      'stockapprails@gmail.com',
+      password:       'xkssbmvxpqdxcbfc',
+      domain:         'gmail.com',
+      address:        'smtp.gmail.com',
+      port:           587,
+      authentication: 'plain',
+      enable_starttls_auto: true
+    }
 
     IEX::Api.configure do |config|
       config.publishable_token = ENV['IEX_API_PUBLISHABLE_TOKEN']

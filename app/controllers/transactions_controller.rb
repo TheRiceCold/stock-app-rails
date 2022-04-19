@@ -1,37 +1,48 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_transaction, only: :show
+  before_action :set_company, except: :index
   before_action :set_all_transactions, only: :index
+  before_action :set_stock_price, only: :new
 
   def index; end
-  def show; end
+
+  def new
+    @transaction = current_user.transactions.build
+  end
 
   def create
-    transaction = Transaction.new transaction_params
+    @transaction = current_user.transactions.build(transaction_params)
 
-    if transaction.save
-      flash.notice = "Transaction was successfully created."
-    else
-      flash.alert = "Transaction failed."
+    respond_to do |format|
+      if @transaction.save
+        format.html {
+          redirect_to transactions_url,
+          notice: 'Transaction was successful.'
+        }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
-
-    redirect_to transactions_url
   end
 
   private
-
-  def set_all_transactions
-    @transactions = Transaction.all
+  def set_stock_price
+    @stock_price = @company.prices.last.values[1]
   end
 
-  def set_transaction
-    @transaction = Transaction.find params[:id]
+  def set_company
+    @company = Company.find(params[:company_id])
+  end
+
+  def set_all_transactions
+    @transactions = current_user.transactions
+      .order('created_at DESC')
   end
 
   def transaction_params
     params.require(:transaction).permit(
-      :transaction_type, :quantity,
-      :total_cost, :user_id, :company_id
-    )
+      :transaction_type,
+      :stocks, :total_cost,
+      :user_id, :company_id)
   end
 end

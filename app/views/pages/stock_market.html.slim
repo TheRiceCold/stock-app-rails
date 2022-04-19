@@ -3,20 +3,23 @@ main.container
 
   section.stock-market
     .search-bar 
-      span Search:&nbsp;
-      input(placeholder='company name or symbol')
+      input
+      i.fas.fa-search
 
     ul.stock-list
       - @companies.each do |c|
         article.stock
-          h2.stock-title 
-            = c.name
-          
-          .stock-img
-            = image_tag c.logo_url
+          = link_to("/companies/#{c.id}") do
+            h2.stock-title 
+              = c.name
 
-          small.stock-quantity
-            strong Quantity:&nbsp;
-            = c.stocks
+            .stock-img
+              = image_tag c.logo_url
 
-          = link_to 'Show', c, class: 'stock-btn'
+            small.stock-quantity
+              strong Stocks:&nbsp;
+              = num_with_commas(c.stocks)
+
+          = link_to 'Buy Stocks', 
+            new_company_transaction_path(c),
+            class: 'buy-btn', 'data-turbo-frame': 'modal'

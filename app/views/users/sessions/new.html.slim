@@ -1,8 +1,7 @@
-main.auth-page(data-controller='auth')
+section.signin
   aside.auth-img 
     = image_tag 'signin.svg'
 
-  article.form-container 
+  article.form-links-container
     = render 'form'
-
-  = turbo_frame_tag :reset_pwd_modal
+    = render 'links'

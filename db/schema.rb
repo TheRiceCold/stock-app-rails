@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_19_072841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,9 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
   end
 
   create_table "investments", force: :cascade do |t|
-    t.integer "shares"
     t.bigint "company_id", null: false
     t.bigint "user_id", null: false
+    t.integer "stocks", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_investments_on_company_id"
@@ -49,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
 
   create_table "transactions", force: :cascade do |t|
     t.integer "transaction_type", default: 0, null: false
-    t.integer "quantity", default: 1, null: false
-    t.decimal "total_cost", precision: 15, scale: 2, null: false
+    t.integer "stocks", null: false
+    t.decimal "total_cost", null: false
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_024019) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.decimal "wallet", precision: 15, scale: 2, default: "5000.0"

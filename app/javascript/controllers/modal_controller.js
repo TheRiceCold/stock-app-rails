@@ -8,17 +8,19 @@ export default class extends Controller {
   connect() {
     const inputs = this.inputTargets
 
-    setTimeout(() => this.element.classList.add("show"), 100)
-    this.closeModalBg()
+    // this.closeModalBg()
     inputAnim(inputs)
+    this.show()
   }
 
-  closeModal() {
+  hide() {
     this.element.classList.remove("show")
+    this.removeModal(this.element)
   }
 
   // Private
-  closeModalBg = () => 
-    this.element.onclick = e => 
-      e.target.classList.remove("show")
+  show = () => setTimeout(
+    () => this.element.classList.add("show"), 100)
+    
+  removeModal = modal => setTimeout(() => modal.remove(), 300)
 }

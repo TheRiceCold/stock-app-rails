@@ -1,6 +1,7 @@
-main.auth-page(data-controller='auth')
-  .auth-img 
+section.signup
+  aside.auth-img 
     = image_tag 'signup.svg'
 
-  .form-container 
+  article.form-links-container
     = render 'form'
+    = render 'links'

@@ -1,0 +1,5 @@
+.links 
+  = link_to 'Log in', new_session_path(resource_name)
+  = link_to "Didn't receive confirmation?", 
+    new_confirmation_path(resource_name),
+    'data-turbo-frame': 'modal'
