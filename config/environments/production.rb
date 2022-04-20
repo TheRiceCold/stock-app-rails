@@ -21,7 +21,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: 'https://stocks-app-project.herokuapp.com/users/sign_in'
   }
-  ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
