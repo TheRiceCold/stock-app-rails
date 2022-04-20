@@ -1,0 +1,62 @@
+@mixin transactions {
+  .search-bar {
+    top: 40px;
+    left: 270px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+
+    input {
+      width: 250px;
+      font-size: 1em;
+      padding: 0.4em;
+      background: none;
+      color: whitesmoke;
+      border-radius: 5px;
+      border: 1px solid #999;
+    }
+  }
+
+  ul.transaction-list {
+    top: 7em;
+    right: 2.5em;
+    position: absolute;
+    width: calc(100% - 325px);
+
+    @media screen and (max-width: 1050px) {
+      width: calc(100% - 130px);
+    }
+
+    li.transaction {
+      color: $black;
+      margin: 5px 0;
+      transition: 0.5s;
+      padding: 10px 20px;
+      border-radius: 5px;
+      &.buy {
+        background: linear-gradient(0deg, #178add, #03dcee);
+      }
+      &.sell {
+        background: linear-gradient(0deg, #b52b4b, #ea335d);
+      }
+      h5 { 
+        font-size: 1.15em; 
+        a { 
+          color: $black;
+          font-size: 1em; 
+          display: inline; 
+          transition: 0.2s;
+        }
+        a:hover { 
+          color: $white;
+        }
+      }
+      p { font-size: 1em; }
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

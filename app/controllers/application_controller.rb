@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_balance
-    @balance = current_user.wallet if user_signed_in?
+    @balance = current_user.balance if user_signed_in?
   end
 end

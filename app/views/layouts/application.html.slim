@@ -18,7 +18,6 @@ html
 
     - if user_signed_in?
       main.container
-        = turbo_frame_tag :modal
         = render 'layouts/sidebar'
         = yield
 

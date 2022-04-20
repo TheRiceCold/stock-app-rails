@@ -7,19 +7,4 @@ main.container
       i.fas.fa-search
 
     ul.stock-list
-      - @companies.each do |c|
-        article.stock
-          = link_to("/companies/#{c.id}") do
-            h2.stock-title 
-              = c.name
-
-            .stock-img
-              = image_tag c.logo_url
-
-            small.stock-quantity
-              strong Stocks:&nbsp;
-              = num_with_commas(c.stocks)
-
-          = link_to 'Buy Stocks', 
-            new_company_transaction_path(c),
-            class: 'buy-btn', 'data-turbo-frame': 'modal'
+      = render @companies

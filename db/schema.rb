@@ -62,9 +62,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_17_220821) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "transaction_type", default: 0, null: false
+    t.integer "transaction_type", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.integer "stocks", null: false
-    t.decimal "total_cost", null: false
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_17_220821) do
     t.string "unconfirmed_email"
     t.string "firstname", null: false
     t.string "lastname", null: false
-    t.decimal "wallet", precision: 15, scale: 2, default: "5000.0"
+    t.decimal "balance", precision: 10, scale: 2, default: "5000.0"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

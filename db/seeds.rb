@@ -3,6 +3,18 @@ Dir[File.join(Rails.root, 'db', 'seeds', '*rb')].sort.each do |seed|
   load seed
 end if Rails.env.development?
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(
+#   email: 'admin@example.com',
+#   password: 'password',
+#   password_confirmation: 'password'
+# ) if Rails.env.development?
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+user = User.new(
+  firstname: 'gon',
+  lastname: 'freecs',
+  email: 'gonfreecs@hunters.com',
+  password: 'test1234',
+  password_confirmation: 'test1234'
+)
+user.skip_confirmation!
+user.save!
