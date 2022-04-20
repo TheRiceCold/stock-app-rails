@@ -10,6 +10,8 @@ end if Rails.env.development?
 # ) if Rails.env.development?
 
 user = User.new(
+  firstname: 'gon',
+  lastname: 'freecs',
   email: 'gonfreecs@hunters.com',
   password: 'test1234',
   password_confirmation: 'test1234'
