@@ -8,8 +8,8 @@ export default class extends Controller {
     this.stocksTarget.value = ""
     this.submitTarget.disabled = true
     this.type = this.stocksTarget.dataset.type
-    this.stocks = this.stocksTarget.dataset.stocks
-    this.balance = this.stocksTarget.dataset.balance
+    this.stocks = Number(this.stocksTarget.dataset.stocks)
+    this.balance = Number(this.stocksTarget.dataset.balance)
     this.price = this.totalTarget.dataset.price.toLocaleString('en-US')
   }
 

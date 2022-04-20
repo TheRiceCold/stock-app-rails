@@ -12,6 +12,7 @@
     text-align: center;
     padding: 5em 1em 1em 1em;
     span { display: none; }
+    .sidebar-header { display: none; }
   }
 
   .sidebar-header {
@@ -21,7 +22,7 @@
   }
 
   .sidebar-container {
-    margin-top: 1.2em;
+    margin-top: 1.5em;
     position: relative;
 
     @media screen and (max-height: 700px) {

@@ -19,12 +19,12 @@
 
   ul.transaction-list {
     top: 7em;
-    right: 2em;
+    right: 2.5em;
     position: absolute;
     width: calc(100% - 325px);
 
     @media screen and (max-width: 1050px) {
-      width: calc(100% - 4.1em);
+      width: calc(100% - 130px);
     }
 
     li.transaction {

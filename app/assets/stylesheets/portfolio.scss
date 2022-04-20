@@ -7,6 +7,11 @@
   width: calc(100% - 325px);
   grid-template-columns: repeat(4, 1fr);
 
+  @media screen and (max-width: 1050px) {
+    right: 2.5em;
+    width: calc(100% - 130px);
+  }
+
   .company {
     display: flex;
     transition: 0.2s;
