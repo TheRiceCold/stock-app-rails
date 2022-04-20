@@ -14,7 +14,7 @@
     a.buy-btn {
       width: 8em;
       padding: 0.5em;
-      color: #1c1c1c;
+      color: $black;
       transition: 0.3s;
       font-weight: bold;
       border-radius: 5px;
@@ -44,7 +44,7 @@
   .panel {
     overflow: hidden;
     border-radius: 15px;
-    border: 1px solid #999;
+    border: 1px solid $grey;
   }
 
   .list li {
@@ -54,9 +54,9 @@
     justify-content: space-between;
 
     &:not(:last-child) {
-      border-bottom: 1px #999 solid;
+      border-bottom: 1px $grey solid;
     }
-    span { color: #00b982; }
+    span { color: $green; }
   }
 
   .goal { 
@@ -64,7 +64,7 @@
     margin: 1em 0;
 
     i {
-      color: #03dcee;
+      color: $blue;
       margin-right: 0.5em;
       font-size: 2em;
     }
@@ -104,19 +104,20 @@
 
     > div {
       padding: 1em;
+      color: $black;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 
       h1 { margin: 0.5em 0; }
-      small { color: #fff; }
+      small { font-weight: bold; }
     }
 
     > div:nth-child(even) {
-      background: linear-gradient(0deg, #b52b4b, #ea335d);
+      background: linear-gradient(0deg, #b52b4b, $red);
     }
 
     > div:nth-child(odd) {
-      background: linear-gradient(0deg, #178add, #03dcee);
+      background: linear-gradient(0deg, #178add, $blue);
     }
 
     .text { padding: 1em; }

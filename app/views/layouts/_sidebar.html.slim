@@ -1,4 +1,7 @@
 aside.sidebar
+  .sidebar-header
+    h4 My Wallet
+    p = number_to_currency @balance
   .sidebar-container
     ul
       li = link_to root_path
@@ -32,7 +35,4 @@ aside.sidebar
         span Logout
 
     .sidebar-footer
-      h4 My Wallet
-      p = number_to_currency @balance
-      br
       p &copy; Batch 15 Stock App

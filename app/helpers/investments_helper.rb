@@ -1,0 +1,3 @@
+module InvestmentsHelper
+
+end
