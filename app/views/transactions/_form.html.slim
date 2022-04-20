@@ -1,7 +1,9 @@
+- stocks = @transaction_type == 'buy' ? @company.stocks : @investment.stocks
+
 = form_with(model: [@company, @transaction],
   data: { turbo: false }) do |f|
   = render 'errors', transaction: @transaction
-  p.sub-title(data-compute-total-target='total' data-value=@stock_price)
+  p.sub-title(data-transaction-target='total' data-price=@stock_price)
 
   = f.hidden_field :price, value: @stock_price
   = f.hidden_field :company_id, value: @company.id
@@ -14,8 +16,11 @@
     .form-field
       = f.label 'Quantity'
       = f.number_field :stocks, 
-        data: { action: 'keyup->compute-total#update',
-          compute_total_target: 'stocks',
-          modal_target: 'input', value: @balance }
+        data: { action: 'keyup->transaction#update',
+          transaction_target: 'stocks',
+          modal_target: 'input',
+          type: @transaction_type,
+          balance: @balance, stocks: stocks }
 
-  = f.submit 'Buy', data: { compute_total_target: 'submit' }
+  = f.submit @transaction_type.capitalize, 
+    data: { transaction_target: 'submit' }

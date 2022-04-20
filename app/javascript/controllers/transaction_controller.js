@@ -1,14 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="compute-total"
+// Connects to data-controller="transaction"
 export default class extends Controller {
   static targets = ["total", "stocks", "submit"]
 
   connect() { 
-    this.stocksTarget.value = ''
+    this.stocksTarget.value = ""
     this.submitTarget.disabled = true
-    this.price = this.totalTarget.dataset.value.toLocaleString('en-US')
-    this.balance = Number(this.stocksTarget.dataset.value)
+    this.type = this.stocksTarget.dataset.type
+    this.stocks = this.stocksTarget.dataset.stocks
+    this.balance = this.stocksTarget.dataset.balance
+    this.price = this.totalTarget.dataset.price.toLocaleString('en-US')
   }
 
   update() {
@@ -23,14 +25,19 @@ export default class extends Controller {
       this.validate()
       this.totalTarget.innerText = "Negative values are not allowed"
     }
-    else if (total > this.balance) {
+    else if (total > this.balance && this.type === "buy") {
       this.validate()
       this.totalTarget.innerText = "Insufficient balance"
     }
+    else if (qty > this.stocks && this.type === "sell") {
+      this.validate()
+      this.totalTarget.innerText = `You only have ${this.stocks} stocks`
+    }
     else {
+      const costOrEarned = this.type === "buy" ? "Total Cost: $ " : "Total Earnings $: "
       this.submitTarget.disabled = false
       this.totalTarget.classList.remove("validate")
-      this.totalTarget.innerText = "Total Cost: $"+total.toLocaleString('en-US')
+      this.totalTarget.innerText = costOrEarned + total.toLocaleString("en-US")
     }
   }
 

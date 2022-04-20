@@ -5,18 +5,16 @@ class Transaction < ApplicationRecord
 
   # default_scope { order(created_at: :desc) }
 
-  validates_presence_of :transaction_type, :stocks
+  validates_presence_of :transaction_type, :stocks, :company_id
   validates :stocks, numericality: { greater_than: 0 }
   validate :sufficient_balance
 
   before_save :create_investment
   # after_save :update_investment
-  after_save :update_balance
+  after_save :update_user_balance
   after_save :update_company_stocks
 
   private
-
-  # 
   def total_cost = self.stocks.to_d * price.to_d
   def shares = self.stocks * 100 / get_company.stocks
 
@@ -54,19 +52,8 @@ class Transaction < ApplicationRecord
   #   end
   # end
   
-  def update_company_stocks
-    company = Company.find(self.company_id)
-
-    case self.transaction_type
-    when 'buy'
-      company.stocks += self.stocks
-    when 'sell'
-      company.stocks -= self.stocks
-    end
-    company.save
-  end
-
-  def update_balance
+  # after save
+  def update_user_balance
     case transaction_type
     when 'buy'
       user.balance -= self.total_cost
@@ -74,5 +61,17 @@ class Transaction < ApplicationRecord
       user.balance += self.total_cost
     end
     user.save
+  end
+  
+  def update_company_stocks
+    company = Company.find(self.company_id)
+
+    case self.transaction_type
+    when 'buy'
+      company.stocks -= self.stocks
+    when 'sell'
+      company.stocks += self.stocks
+    end
+    company.save
   end
 end
