@@ -1,4 +1,4 @@
-import inputAnim from "../input_anim"
+// import inputAnim from "../input_anim"
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal"
