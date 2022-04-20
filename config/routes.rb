@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :transactions, only: :index
-  resources :investments, only: :index
+  resources :investments, only: [:index, :show]
 
   # get 'add_wallet', to: 'wallet#add', as: 'add_wallet'
   get 'portfolio', to: 'investments#index', as: 'portfolio'

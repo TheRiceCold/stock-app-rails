@@ -25,7 +25,7 @@ export default class extends Controller {
     }
     else if (total > this.balance) {
       this.validate()
-      this.totalTarget.innerText = "Sufficient Balance"
+      this.totalTarget.innerText = "Insufficient balance"
     }
     else {
       this.submitTarget.disabled = false

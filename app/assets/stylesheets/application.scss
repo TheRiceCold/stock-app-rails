@@ -14,18 +14,20 @@
 */
 
 @import 'auth_page';
+@import 'portfolio';
+@import 'transactions';
 @import 'stock_market';
 @import 'dashboard/main';
 @import 'utils/defaults';
 @import 'utils/variables';
 @import 'components/modal';
-@import 'transactions/main';
 @import 'components/sidebar';
 
 main.auth-page { @include auth_page; }
 main.container {
   aside.sidebar { @include sidebar; }
   section.company { @include dashboard; }
+  section.portfolio { @include portfolio; }
   section.transactions { @include transactions; }
   section.stock-market { @include stocks_market; }
 }

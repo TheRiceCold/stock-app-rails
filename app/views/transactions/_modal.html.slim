@@ -1,6 +1,7 @@
 = turbo_frame_tag :modal do
   section.modal-bg(data-controller='modal')
     article.modal(data-controller='compute-total')
+      p = @transaction_type
       h2 = @company.name
 
       span.modal-close(data-action='click->modal#hide')

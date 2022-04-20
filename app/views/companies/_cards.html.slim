@@ -1,28 +1,29 @@
 - market_cap = number_to_currency company.market_cap
+- stocks = num_with_commas company.stocks
 
 .cards
   div
     h4 Latest Price
     h1(data-company-show-target='price')
       = number_to_currency price
-    h5
+    small
       | Last Price: 
       = last_price
 
   div
     h4 Stocks
-    h1 = company.stocks
-    h5 
+    h1 = stocks
+    small
       | Total Price: 
       = number_to_currency company.stocks * price
 
   div 
     h4 Last Change
     h1 = last_change
-    h5 
+    small
       | Date: 
       = last_change_date
 
-  div 
+  div
     h4 Market Cap
     h1 = market_cap

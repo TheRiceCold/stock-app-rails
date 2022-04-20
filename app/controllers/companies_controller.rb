@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
   end
 
   def set_last_change
-    @last_change_date = @company.prices.last.values[23]
+    @last_change_date = @company.prices.last.values[22]
     @last_change_percent = @company.prices.last.values[20]
   end
 

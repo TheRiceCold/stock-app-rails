@@ -1,0 +1,16 @@
+- company = Company.find investment.company_id
+- company_stocks = num_with_commas company.stocks
+- stocks_owned = num_with_commas investment.stocks
+
+.company
+  = link_to investment_path(investment), class: 'company-content'
+    = image_tag company.logo_url
+    h3.ticker = company.ticker
+    h4.name = company.name
+    p.stocks 
+      | Stocks Owned:&nbsp;
+      = stocks_owned
+    p Last update:
+  = link_to 'Sell',
+    company_transactions_sell_path(company),
+    class: 'buy-btn', 'data-turbo-frame': 'modal'

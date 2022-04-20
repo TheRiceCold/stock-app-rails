@@ -12,11 +12,11 @@ class Transaction < ApplicationRecord
   before_save :create_investment
   # after_save :update_investment
   after_save :update_balance
+  after_save :update_company_stocks
 
   private
 
-  # company and stocks
-  def get_company = Company.find(self.company_id)
+  # 
   def total_cost = self.stocks.to_d * price.to_d
   def shares = self.stocks * 100 / get_company.stocks
 
@@ -27,7 +27,7 @@ class Transaction < ApplicationRecord
   # validations
   def sufficient_balance
     if transaction_type == 'buy' and user.balance.to_d < total_cost.to_d
-      errors.add(:stocks, 'insufficient balance')
+      errors.add(:stocks, 'Insufficient Balance')
     end
   end
 
@@ -41,7 +41,7 @@ class Transaction < ApplicationRecord
     end
   end
   
-  # # after save
+  # after save
   # def update_investment
   #   if investment_exist?
   #     case self.transaction_type
@@ -53,13 +53,25 @@ class Transaction < ApplicationRecord
   #     user_investment.save
   #   end
   # end
+  
+  def update_company_stocks
+    company = Company.find(self.company_id)
+
+    case self.transaction_type
+    when 'buy'
+      company.stocks += self.stocks
+    when 'sell'
+      company.stocks -= self.stocks
+    end
+    company.save
+  end
 
   def update_balance
     case transaction_type
     when 'buy'
-      user.balance -= total_cost
+      user.balance -= self.total_cost
     when 'sell'
-      user.balance += total_cost
+      user.balance += self.total_cost
     end
     user.save
   end
