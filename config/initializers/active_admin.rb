@@ -124,7 +124,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-<<<<<<< HEAD
+
 
   # config.comments = false
   #
@@ -136,27 +136,21 @@ ActiveAdmin.setup do |config|
   # You can change the name under which comments are registered:
   config.comments_registration_name = 'AdminComment'
 
-=======
+
   # config.comments = false
   #
-  # You can change the name under which comments are registered:
-  # config.comments_registration_name = 'AdminComment'
->>>>>>> origin/main-clone
-  #
+
   # You can change the order for the comments and you can change the column
   # to be used for ordering:
   # config.comments_order = 'created_at ASC'
   #
   # You can disable the menu item for the comments index page:
-<<<<<<< HEAD
 
   # config.comments_menu = false
 
   config.comments_menu = false
 
-=======
-  # config.comments_menu = false
->>>>>>> origin/main-clone
+
   #
   # You can customize the comment menu:
   # config.comments_menu = { parent: 'Admin', priority: 1 }
