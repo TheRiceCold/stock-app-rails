@@ -18,40 +18,6 @@
   - Able to track all the registered traders.
   - Able to monitor all transactions to see the transaction flow of the app.
 
-## Schema
-
-- Users
-  - email (string)
-  - encrypted_password (string)
-  - reset_password_token (string)
-  - reset_password_sent_at (datetime)
-  - remember_created_at (datetime)
-  - firstname (string)
-  - lastname (string)
-  - status (integer(enum))
-  - wallet (decimal)
-
-- Company
-  - ticker (string)
-  - name (string)
-  - logo_url (string)
-  - stocks (integer)
-  - prices (json)
-  - market_cap (decimal)
-
-- Transactions
-  - transaction_type (integer(enum))
-  - quantity (integer)
-  - total_cost (decimal)
-  - user_id (reference)
-  - stock_id (reference)
-
-- Investments
-  - quantity (integer)
-  - user_id (reference)
-  - stock_id (reference)
-
-
 ## Entity Relationship Diagram
 ![ERD](docs/erd.jpg)
 
