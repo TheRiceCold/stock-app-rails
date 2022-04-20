@@ -1,8 +1,9 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company, except: :index
+  before_action :set_investment, only: :sell
   before_action :set_all_transactions, only: :index
-  before_action :set_stock_price, only: :buy
+  before_action :set_stock_price, only: [:buy, :sell]
   before_action :new_transaction, only: [:buy, :sell]
 
   def index; end
@@ -31,6 +32,11 @@ class TransactionsController < ApplicationController
   end
 
   private
+  def set_investment
+    @investment = current_user.investments
+      .find_by(company_id: params[:company_id])
+  end
+
   def new_transaction
     @transaction = current_user.transactions.build
   end
