@@ -14,5 +14,15 @@ ActiveAdmin.register Transaction do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  index do
+    selectable_column
+    id_column
+    column :transaction_type
+    column :price
+    column :stocks
+    column :user_id
+    column :company_id
+    column :updated_at
+
+end
 end
