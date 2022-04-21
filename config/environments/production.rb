@@ -5,7 +5,7 @@ Rails.application.configure do
   #deploying in heroku
   
   config.action_mailer.default_url_options = {
-    host: 'stocks-app-project.herokuapp.com/users/sign_in', protocol: 'https'
+    host: 'https/stocks-app-project.herokuapp.com/'
   }
 
   config.action_mailer.delivery_method = :smtp
