@@ -5,7 +5,7 @@ Rails.application.configure do
   #deploying in heroku
   
   config.action_mailer.default_url_options = {
-    host: 'https://stocks-app-project.herokuapp.com/'
+    host: 'stocks-app-project.herokuapp.com/', protocol:'https'
   }
 
   config.action_mailer.delivery_method = :smtp
@@ -13,12 +13,12 @@ Rails.application.configure do
   port: 587,
   address: 'smtp.gmail.com',
   domain: 'gmail.com',
-  user_name:  'quevonmontojo@gmail.com',
-  password: 'quevon02021998',
+  user_name:  ENV['SMTP_USER_NAME'],
+  password: ENV['SMTP_PASSWORD'],
   authentication: :plain,
   enable_starttls_auto: true
 }
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 # config.action_mailer.raise_delivery_errors = true
 
   # Settings specified here will take precedence over those in config/application.rb.
