@@ -11,18 +11,18 @@ AdminUser.create!(
 
 
 
-AdminUser.create!(
-  email: 'admin@example.com',
-  password: 'password',
-  password_confirmation: 'password'
-) 
+# AdminUser.create!(
+#   email: 'admin@example.com',
+#   password: 'password',
+#   password_confirmation: 'password'
+# ) 
 
-# user = User.new(
-#   firstname: 'gon',
-#   lastname: 'freecs',
-#   email: 'gonfreecs@hunters.com',
-#   password: 'test1234',
-#   password_confirmation: 'test1234'
-# )
-# user.skip_confirmation!
-# user.save!
+user = User.new(
+  firstname: 'gon',
+  lastname: 'freecs',
+  email: 'gonfreecs@hunters.com',
+  password: 'test1234',
+  password_confirmation: 'test1234'
+)
+user.skip_confirmation!
+user.save!
