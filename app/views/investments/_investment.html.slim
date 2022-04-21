@@ -1,0 +1,18 @@
+- company = Company.find investment.company_id
+- company_stocks = num_with_commas company.stocks
+- stocks_owned = num_with_commas investment.stocks
+- last_update = investment.updated_at
+- date = last_update.strftime('%B %d, %Y') + last_update.strftime(' at %I:%M %p')
+
+.company
+  = link_to investment_path(investment), class: 'company-content'
+    = image_tag company.logo_url
+    h3.ticker = company.ticker
+    h4.stocks 
+      | Stocks Owned:&nbsp;
+      span = stocks_owned
+    h4 Last update: 
+    p = date
+    = link_to 'Sell',
+    company_transactions_sell_path(company),
+    class: 'buy-btn', 'data-turbo-frame': 'modal'

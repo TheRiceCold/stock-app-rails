@@ -7,19 +7,16 @@ class User < ApplicationRecord
          :rememberable, :validatable,
          :confirmable
 
+  has_many :investments, dependent: :destroy
   has_many :transactions, dependent: :destroy
 
-  
-
-  validates :email, uniqueness: true
-  validates_presence_of :email, :firstname, :lastname, :wallet
-  validates :wallet, numericality: { greater_than_or_equal_to: 0 }
+  validates_presence_of :email, :firstname, :lastname
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
   enum status: {
     pending: 0,
     approved: 1
   }, _prefix: true
-
 
 
   # has_many :investments, dependent: :destroy
