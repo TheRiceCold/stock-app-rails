@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :status, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
+  permit_params :email, :password,:password_confirmation,:encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :firstname, :lastname, :balance, :approved, :confirmation_token,:confirmed_at,:confirmation_sent_at,:unconfirmed_email
 
   before_action :remove_password_params_if_blank, only: [:update]
   controller do
