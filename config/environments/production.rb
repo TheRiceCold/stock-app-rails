@@ -18,7 +18,7 @@ Rails.application.configure do
   authentication: :plain,
   enable_starttls_auto: true
 }
-# config.action_mailer.raise_delivery_errors = true
+config.action_mailer.raise_delivery_errors = true
 # config.action_mailer.raise_delivery_errors = true
 
   # Settings specified here will take precedence over those in config/application.rb.
